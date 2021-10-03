@@ -15,7 +15,17 @@
 <div align="left">
     <pre>Create a new branch for your modifications (git checkout -b branch-name)</pre>
 </div>
-4. Now make your changes
+4. Go inside assets/user.data.json file and make your changes
+<div align="left">
+  <pre>
+    {
+    "id": "1",
+    "name": "Your Name",
+    "description": "Enter your experience here."
+    }
+  </pre>
+</div>
+Add your data as per shown above and save it.
 5.
 <div align="left">
     <pre>Add your files (git add .)</pre>
