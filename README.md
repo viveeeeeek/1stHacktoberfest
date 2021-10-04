@@ -4,7 +4,11 @@
 
 This repo is participating in Hacktoberfest 2021.
 This is beginner friendly repo and you can do your 1st Pull Request here.
-Just follow proper format to get your PR merged successfully
+Just follow proper format to get your PR merged successfully.
+
+How to contribute to this repo?
+Simply share your name and hacktoberfest experience!
+Follow below instructions to make your contribution.
 
 <br>
 
