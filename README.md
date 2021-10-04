@@ -2,6 +2,15 @@
 
 ![](https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg)
 
+This repo is participating in Hacktoberfest 2021.
+This is beginner friendly repo and you can do your 1st Pull Request here.
+Just follow proper format to get your PR merged successfully
+
+<br>
+
+## Test app
+![](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
+
 <h2>Contribution Instructions</h2>
  1.
 <div align="left">
@@ -19,7 +28,6 @@
 <div align="left">
   <pre>
     {
-    "id": "1",
     "name": "Your Name",
     "description": "Enter your experience here."
     }
