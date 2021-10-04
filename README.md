@@ -9,7 +9,7 @@ Just follow proper format to get your PR merged successfully
 <br>
 
 ## Test app
-![Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
+[Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
 
 <h2>Contribution Instructions</h2>
  1.
