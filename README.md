@@ -12,6 +12,10 @@ Follow below instructions to make your contribution.
 
 <br>
 
+![image](https://user-images.githubusercontent.com/64553247/135806021-ade80296-2f37-4c8f-ab5a-fd0fe064fc28.png)
+![image](https://user-images.githubusercontent.com/64553247/135806097-e7774bf9-2b63-4828-b8ac-8b7d40dcb3d2.png)
+
+
 ## Test app
 [Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
 
