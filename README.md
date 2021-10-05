@@ -28,7 +28,7 @@ Follow below instructions to make your contribution.
 ![image](https://user-images.githubusercontent.com/62661565/135962982-403e0e2b-c66c-4586-9f6d-79dd1eab9b2e.png)
 2.
 <div align="left">
-    <pre>Open the cloned repository</pre>
+    <pre>Open the cloned repository.</pre>
 </div>
 
 3. Go inside assets/user.data.json file
