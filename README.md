@@ -33,7 +33,8 @@ Follow below instructions to make your contribution.
 
 3. Go inside assets/user.data.json file
 
-4. <div align="left">
+4.
+<div align="left">
     <pre>Click on the edit option present on the right side</pre>
 </div>
 
