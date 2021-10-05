@@ -1,6 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:hacktoberfest/entities/user.entities.dart';
 import 'package:hacktoberfest/screens/detailed.screens.dart';
+import 'package:hacktoberfest/services/services.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -8,88 +9,120 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //
+  List<Users>? _users;
+  late bool _loading;
+
+  @override
+  void initState() {
+    super.initState();
+    _loading = true;
+    Services.getUsers().then((users) {
+      setState(() {
+        _users = users;
+        _loading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
           body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-        child: Column(
-          children: [
-            Image.asset("assets/banner.png"),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "CONTRIBUTERS",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
-            ),
-            SizedBox(
-              height: 2,
-            ),
-            Expanded(
-              child: FutureBuilder(
-                builder: (context, snapshot) {
-                  var showData = json.decode(snapshot.data.toString());
-                  return ListView.builder(
-                      itemCount: showData.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DetailScreen(
-                                          name: showData[index]['name'],
-                                          description: showData[index]
-                                              ['description'])));
-                            },
-                            child: Container(
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    color: Colors.orange.withAlpha(50),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8.0))),
-                                child: Row(
-                                  children: [
-                                    SizedBox(width: 25,),
-                                    Image.asset(
-                                      "assets/user.png",
-                                      height: 33,
-                                      width: 33,
-                                    ),
-                                    SizedBox(
-                                      width: 50,
-                                    ),
-                                    Text(
-                                      showData[index]['name'],
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    )
-                                  ],
-                                )),
-                          ),
-                        );
-                      });
-                },
-                future: DefaultAssetBundle.of(context)
-                    .loadString("assets/user.data.json"),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            )
-          ],
-        ),
-      )),
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              child: Column(
+                children: [
+                  Image.asset(
+                    "assets/banner.png",
+                    height: size.height / 5,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "CONTRIBUTERS",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: _users == null ? 0 : _users!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Users users = _users![index];
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              child: Row(
+                                children: [
+                                  Expanded(child: SizedBox()),
+                                  InkWell(
+                                    splashColor:
+                                        Colors.orangeAccent.withOpacity(0.5),
+                                    hoverColor: Colors.orangeAccent,
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  DetailScreen(
+                                                      name: users.name,
+                                                      description:
+                                                          users.description)));
+                                    },
+                                    child: Container(
+                                        height: size.height / 10,
+                                        width: size.width < 768
+                                            ? size.width / 1.5
+                                            : size.width / 2,
+                                        decoration: BoxDecoration(
+                                            color: Colors.orange.withAlpha(50),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(8.0))),
+                                        child: Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 25,
+                                            ),
+                                            Image.asset(
+                                              "assets/user.png",
+                                              height: 33,
+                                              width: 33,
+                                            ),
+                                            SizedBox(
+                                              width: 50,
+                                            ),
+                                            Text(
+                                              users.name,
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
+                                            )
+                                          ],
+                                        )),
+                                  ),
+                                  Expanded(child: SizedBox()),
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  )
+                ],
+              ))),
     );
-    // Column(
-    //   children: [
-    //
-    //   ],
-    // ));
   }
 }
+
+ 
+
+
+
+            //         

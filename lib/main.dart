@@ -19,11 +19,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       // Hide the debug banner
       debugShowCheckedModeBanner: false,
-      title: 'Hacktoberfest2021',
+      title: '1stHacktoberfest',
       home: HomePage(),
-      theme: ThemeData(
-        accentColor: Colors.orange
-      ),
+      theme: ThemeData(accentColor: Colors.orange),
     );
   }
 }
