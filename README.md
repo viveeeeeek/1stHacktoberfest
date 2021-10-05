@@ -9,18 +9,12 @@ Just follow proper format to get your first PR merged successfully.
 You simply need to submit your name with your Hacktoberfest experience.
 Follow given any one method to start contributing.
 
-## 1) Contribute via website itself. ✨
-## 2) Contribute via command line interface. ✨
-
-
+### 1) Contribute via website itself. ✨
+### 2) Contribute via command line interface. ✨
 <br>
 
-![image](https://user-images.githubusercontent.com/64553247/135806021-ade80296-2f37-4c8f-ab5a-fd0fe064fc28.png)
-![image](https://user-images.githubusercontent.com/64553247/135806097-e7774bf9-2b63-4828-b8ac-8b7d40dcb3d2.png)
-
-
-## Test app ✨
-[Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
+## 🔥 Live preview available here : https://firsthacktoberfest.web.app/#/
+![image](https://user-images.githubusercontent.com/64553247/136090332-6cd9947a-71de-4a4e-9100-18f00fcc0332.png)
 
 
 <h2>✨ Contribution Instructions via website itself. ✨</h2>
