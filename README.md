@@ -1,5 +1,3 @@
-# Hacktoberfest 2021
-
 ![](https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg)
 
 This repo is participating in Hacktoberfest 2021.
@@ -11,8 +9,8 @@ Just follow proper format to get your first PR merged successfully.
 You simply need to submit your name with your Hacktoberfest experience.
 Follow given any one method to start contributing.
 
-## 1) Contribute via website itself.
-## 2) Contribute via command line interface.
+## 1) Contribute via website itself. ✨
+## 2) Contribute via command line interface. ✨
 
 
 <br>
@@ -21,17 +19,18 @@ Follow given any one method to start contributing.
 ![image](https://user-images.githubusercontent.com/64553247/135806097-e7774bf9-2b63-4828-b8ac-8b7d40dcb3d2.png)
 
 
-## Test app
+## Test app ✨
 [Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
 
 
-<h2>Contribution Instructions via website itself</h2>
+<h2>✨ Contribution Instructions via website itself. ✨</h2>
 1.
 <div align="left">
     <pre>Fork this Repository using the button at the top right corner</pre>
 </div>
 
 ![image](https://user-images.githubusercontent.com/62661565/135962982-403e0e2b-c66c-4586-9f6d-79dd1eab9b2e.png)
+
 2.
 <div align="left">
     <pre>Open the cloned repository</pre>
@@ -90,7 +89,7 @@ Follow given any one method to start contributing.
 </div>
 
  
-<h2>Contribution Instructions via command line</h2>
+<h2>✨ Contribution Instructions via command line. ✨</h2>
 
  1.
 <div align="left">
@@ -101,10 +100,12 @@ Follow given any one method to start contributing.
 <div align="left">
     <pre>Clone your forked repository to your pc ( git clone "url from clone option.")</pre>
 </div>
+
 3.
 <div align="left">
     <pre>Create a new branch for your modifications (git checkout -b branch-name)</pre>
 </div>
+
 4. Go inside assets/user.data.json file and make your changes
 <div align="left">
   <pre>
@@ -114,19 +115,23 @@ Follow given any one method to start contributing.
     }
   </pre>
 </div>
-Add your data as per shown above and save it.
+   Add your data as per shown above and save it.
+
 5.
 <div align="left">
     <pre>Add your files (git add .)</pre>
 </div>
+
 6.
 <div align="left">
     <pre>commit (git commit -m "message")</pre>
 </div>
+
 7.
 <div align="left">
     <pre>push (git push origin branch-name)</pre>
 </div>
+
 8.
 <div align="left">
     <pre>Create a pull request with label</pre>
