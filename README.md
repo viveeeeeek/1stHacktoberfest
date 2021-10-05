@@ -4,11 +4,16 @@
 
 This repo is participating in Hacktoberfest 2021.
 It is beginner friendly repo and you can do your 1st Pull Request here.
-Just follow proper format to get your PR merged successfully.
+Just follow proper format to get your first PR merged successfully.
 
-## How to contribute to this repo? 
-Simply share your name and hacktoberfest experience!
-Follow below instructions to make your contribution.
+<h1> How to contribute to this repo ❓</h1>
+
+You simply need to submit your name with your Hacktoberfest experience.
+Follow given any one method to start contributing.
+
+## 1) Contribute via website itself.
+## 2) Contribute via command line interface.
+
 
 <br>
 
@@ -19,8 +24,9 @@ Follow below instructions to make your contribution.
 ## Test app
 [Download app](https://drive.google.com/file/d/1r1nHGf4WVpOxD2IN4n3DWz0kci9JYyUe/view?usp=sharing)
 
+
 <h2>Contribution Instructions via website itself</h2>
- 1.
+1.
 <div align="left">
     <pre>Fork this Repository using the button at the top right corner</pre>
 </div>
@@ -40,7 +46,7 @@ Follow below instructions to make your contribution.
 
 ![image](https://user-images.githubusercontent.com/62661565/135963731-0aa907e6-7db8-403c-9043-146b91fe40d5.png)
 
-5.Now make your changes by adding a new entry below the existing entries in the format given below
+5. Now make your changes by adding a new entry below the existing entries in the format given below
 <div align="left">
   <pre>
     {
