@@ -76,9 +76,11 @@ class _HomePageState extends State<HomePage> {
                                     },
                                     child: Container(
                                         height: size.height / 10,
-                                        width: size.width < 768
-                                            ? size.width / 1.5
-                                            : size.width / 2,
+                                        width: size.width > 1000
+                                            ? size.width / 3.2
+                                            : size.width > 768
+                                                ? size.width / 3
+                                                : size.width / 1.5,
                                         decoration: BoxDecoration(
                                             color: Colors.orange.withAlpha(50),
                                             borderRadius: BorderRadius.all(
@@ -86,7 +88,11 @@ class _HomePageState extends State<HomePage> {
                                         child: Row(
                                           children: [
                                             SizedBox(
-                                              width: 25,
+                                              width: size.width > 1000
+                                                  ? 35
+                                                  : size.width > 768
+                                                      ? 25
+                                                      : 20,
                                             ),
                                             Image.asset(
                                               "assets/user.png",
@@ -94,14 +100,25 @@ class _HomePageState extends State<HomePage> {
                                               width: 33,
                                             ),
                                             SizedBox(
-                                              width: 50,
+                                              width: size.width > 1000
+                                                  ? 35
+                                                  : size.width > 768
+                                                      ? 25
+                                                      : 20,
                                             ),
                                             Text(
                                               users.name,
                                               style: TextStyle(
                                                   fontSize: 18,
                                                   fontWeight: FontWeight.bold),
-                                            )
+                                            ),
+                                            SizedBox(
+                                              width: size.width > 1000
+                                                  ? 35
+                                                  : size.width > 768
+                                                      ? 25
+                                                      : 10,
+                                            ),
                                           ],
                                         )),
                                   ),
@@ -112,8 +129,16 @@ class _HomePageState extends State<HomePage> {
                           );
                         }),
                   ),
-                  SizedBox(
-                    height: 15,
+                  Container(
+                    height: 25,
+                    width: size.width / 1.5,
+                    decoration: BoxDecoration(
+                        color: Colors.orangeAccent.withOpacity(0.5),
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15))),
+                    child: Center(
+                        child: Text("Made with ❤️ during Hacktoberfest")),
                   )
                 ],
               ))),
