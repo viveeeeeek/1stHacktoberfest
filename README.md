@@ -9,8 +9,8 @@ Just follow proper format to get your first PR merged successfully.
 You simply need to submit your name with your Hacktoberfest experience.
 Follow given any one method to start contributing.
 
-### 1) Contribute via website itself. ✨
-### 2) Contribute via command line interface. ✨
+### 1) [Contribute via website itself.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-website-itself-)✨
+### 2) [Contribute via command line interface.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-command-line-) ✨
 <br>
 
 ## 🔥 Live preview available here : https://firsthacktoberfest.web.app/#/
