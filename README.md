@@ -29,7 +29,8 @@ Follow given any one method to start contributing.
 ### 2) [Contribute via command line interface.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-command-line-) ✨
 <br>
 
-## 🔥 Live preview available here : https://firsthacktoberfest.web.app/#/
+## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
+## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
 ![image](https://user-images.githubusercontent.com/64553247/136090332-6cd9947a-71de-4a4e-9100-18f00fcc0332.png)
 
 
