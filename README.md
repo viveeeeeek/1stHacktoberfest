@@ -1,4 +1,5 @@
-![](https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg)
+![image](https://user-images.githubusercontent.com/64553247/136261406-9cf76a3c-69a3-4e67-8ea6-6f27cc0ad1bf.png)
+
 # HacktoberFest Repository (🌟 Star this repository!🌟)
 
 This repo is participating in Hacktoberfest 2021.
@@ -9,8 +10,13 @@ Just follow proper format to get your first PR merged successfully.
 ## 💡 What is Hacktoberfest?
 A month-long celebration from October 1st - 31st sponsored by Digital Ocean and GitHub to get people involved in Open Source. Create your very first pull request to any public repository on GitHub and contribute to the open source developer community.
 
-## 👕 Contribute to open-soucre and grab your free T-shirt & goodies now.
+## 👕 Contribute to open-soucre and grab your Hacktoberfest swags ( Fre T-Shirt & Goodies).
 You need to create 4 Pull Request (PR) to grab goodies.
+
+
+![image](https://user-images.githubusercontent.com/64553247/136261073-a6cf1ead-4c46-4f80-ae2e-739f036c6971.png)
+
+
 Not sure how to do your first Pull Request? No worries. lets get you started.
 
 <h1> How to contribute to this repo ❓</h1>
@@ -141,16 +147,10 @@ Follow given any one method to start contributing.
 </div>
 
 
+<h2>⚠️ Important</h2>
 
-## Getting Started
+Before you start making contribution make these things clear 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1) Star this repo ( Important for you PR to get merged. )
+2) Dont make spam PR's like just add dots (.) in the file.
+3) Make sure you add some value to the repository.
