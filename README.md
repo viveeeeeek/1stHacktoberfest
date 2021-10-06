@@ -23,6 +23,7 @@ Not sure how to do your first Pull Request? No worries. lets get you started.
 
 You simply need to submit your name with your Hacktoberfest experience.
 Follow given any one method to start contributing.
+### [⚠️ Important begore getting started ⚠️](https://github.com/viveeeeeek/1stHacktoberfest/blob/master/CONTRIBUTING.md#%EF%B8%8F-important)
 
 ### 1) [Contribute via website itself.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-website-itself-)✨
 ### 2) [Contribute via command line interface.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-command-line-) ✨
