@@ -1,16 +1,25 @@
 ![](https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg)
+# HacktoberFest Repository (🌟 Star this repository!🌟)
 
 This repo is participating in Hacktoberfest 2021.
 It is beginner friendly repo and you can do your 1st Pull Request here.
 Just follow proper format to get your first PR merged successfully.
+
+
+## 💡 What is Hacktoberfest?
+A month-long celebration from October 1st - 31st sponsored by Digital Ocean and GitHub to get people involved in Open Source. Create your very first pull request to any public repository on GitHub and contribute to the open source developer community.
+
+## 👕 Contribute to open-soucre and grab your free T-shirt & goodies now.
+You need to create 4 Pull Request (PR) to grab goodies.
+Not sure how to do your first Pull Request? No worries. lets get you started.
 
 <h1> How to contribute to this repo ❓</h1>
 
 You simply need to submit your name with your Hacktoberfest experience.
 Follow given any one method to start contributing.
 
-### 1) Contribute via website itself. ✨
-### 2) Contribute via command line interface. ✨
+### 1) [Contribute via website itself.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-website-itself-)✨
+### 2) [Contribute via command line interface.](https://github.com/viveeeeeek/1stHacktoberfest#-contribution-instructions-via-command-line-) ✨
 <br>
 
 ## 🔥 Live preview available here : https://firsthacktoberfest.web.app/#/
