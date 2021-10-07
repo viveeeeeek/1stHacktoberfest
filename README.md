@@ -10,7 +10,7 @@ Just follow proper format to get your first PR merged successfully.
 ## 💡 What is Hacktoberfest?
 A month-long celebration from October 1st - 31st sponsored by Digital Ocean and GitHub to get people involved in Open Source. Create your very first pull request to any public repository on GitHub and contribute to the open source developer community.
 
-## 👕 Contribute to open-soucre and grab your Hacktoberfest swags ( Fre T-Shirt & Goodies).
+## 👕 Contribute to open-soucre and grab your Hacktoberfest schwags ( Free T-Shirt & Goodies).
 You need to create 4 Pull Request (PR) to grab goodies.
 
 
@@ -37,10 +37,10 @@ Follow given any one method to start contributing.
 <h2>✨ Contribution Instructions via website itself. ✨</h2>
 1.
 <div align="left">
-    <pre>Fork this Repository using the button at the top right corner</pre>
+    <pre>Star and Fork this Repository using the button at the top right corner</pre>
 </div>
 
-![image](https://user-images.githubusercontent.com/62661565/135962982-403e0e2b-c66c-4586-9f6d-79dd1eab9b2e.png)
+![image](https://user-images.githubusercontent.com/62661565/136343512-77eb0745-7d0e-435a-bdee-134ee39e3530.png)
 
 2.
 <div align="left">
