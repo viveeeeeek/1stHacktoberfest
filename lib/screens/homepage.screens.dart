@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "CONTRIBUTERS",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 33),
+                            fontWeight: FontWeight.bold, fontSize: 25),
                       ),
                       SizedBox(
                         height: 5,
@@ -103,8 +103,8 @@ class _HomePageState extends State<HomePage> {
                                                 ),
                                                 Image.asset(
                                                   "assets/user.png",
-                                                  height: 33,
-                                                  width: 33,
+                                                  height: 25,
+                                                  width: 25,
                                                 ),
                                                 SizedBox(
                                                   width: size.width > 1000
@@ -137,17 +137,6 @@ class _HomePageState extends State<HomePage> {
                               );
                             }),
                       ),
-                      Container(
-                        height: 25,
-                        width: size.width / 1.5,
-                        decoration: BoxDecoration(
-                            color: Colors.orangeAccent.withOpacity(0.5),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15))),
-                        child: Center(
-                            child: Text("Made with ❤️ during Hacktoberfest")),
-                      )
                     ],
                   )))),
     );
