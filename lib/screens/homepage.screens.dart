@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               constraints: BoxConstraints.expand(),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("img.png"), fit: BoxFit.cover)),
+                      image: AssetImage("assets/img.png"), fit: BoxFit.cover)),
               child: Padding(
                   padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                   child: Column(
