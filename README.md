@@ -31,7 +31,7 @@ Follow given any one method to start contributing.
 
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
 ## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
-![image](https://user-images.githubusercontent.com/64553247/136090332-6cd9947a-71de-4a4e-9100-18f00fcc0332.png)
+![image](https://user-images.githubusercontent.com/64553247/136580345-edbdad42-289c-49aa-8c20-da5bad40fdb7.png)
 
 
 <h2>✨ Contribution Instructions via website itself. ✨</h2>
