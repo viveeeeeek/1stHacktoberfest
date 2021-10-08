@@ -31,117 +31,125 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-          body: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-              child: Column(
-                children: [
-                  Image.asset(
-                    "assets/banner.png",
-                    height: size.height / 5,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "CONTRIBUTERS",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 33),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: _users == null ? 0 : _users!.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          Users users = _users![index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              child: Row(
-                                children: [
-                                  Expanded(child: SizedBox()),
-                                  InkWell(
-                                    splashColor:
-                                        Colors.orangeAccent.withOpacity(0.5),
-                                    hoverColor: Colors.orangeAccent,
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailScreen(
-                                                      name: users.name,
-                                                      description:
-                                                          users.description)));
-                                    },
-                                    child: Container(
-                                        height: size.height / 10,
-                                        width: size.width > 1000
-                                            ? size.width / 3.2
-                                            : size.width > 768
-                                                ? size.width / 3
-                                                : size.width / 1.5,
-                                        decoration: BoxDecoration(
-                                            color: Colors.orange.withAlpha(50),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(8.0))),
-                                        child: Row(
-                                          children: [
-                                            SizedBox(
-                                              width: size.width > 1000
-                                                  ? 35
-                                                  : size.width > 768
-                                                      ? 25
-                                                      : 20,
-                                            ),
-                                            Image.asset(
-                                              "assets/user.png",
-                                              height: 33,
-                                              width: 33,
-                                            ),
-                                            SizedBox(
-                                              width: size.width > 1000
-                                                  ? 35
-                                                  : size.width > 768
-                                                      ? 25
-                                                      : 20,
-                                            ),
-                                            Text(
-                                              users.name,
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            SizedBox(
-                                              width: size.width > 1000
-                                                  ? 35
-                                                  : size.width > 768
-                                                      ? 25
-                                                      : 10,
-                                            ),
-                                          ],
-                                        )),
+          body: Container(
+              constraints: BoxConstraints.expand(),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("img.png"), fit: BoxFit.cover)),
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/banner.png",
+                        height: size.height / 5,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "CONTRIBUTERS",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 33),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Expanded(
+                        child: ListView.builder(
+                            itemCount: _users == null ? 0 : _users!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              Users users = _users![index];
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  child: Row(
+                                    children: [
+                                      Expanded(child: SizedBox()),
+                                      InkWell(
+                                        splashColor: Colors.orangeAccent
+                                            .withOpacity(0.5),
+                                        hoverColor: Colors.orangeAccent,
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DetailScreen(
+                                                          name: users.name,
+                                                          description: users
+                                                              .description)));
+                                        },
+                                        child: Container(
+                                            height: size.height / 10,
+                                            width: size.width > 1000
+                                                ? size.width / 3.2
+                                                : size.width > 768
+                                                    ? size.width / 3
+                                                    : size.width / 1.5,
+                                            decoration: BoxDecoration(
+                                                color:
+                                                    Colors.orange.withAlpha(50),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(8.0))),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : size.width > 768
+                                                          ? 25
+                                                          : 20,
+                                                ),
+                                                Image.asset(
+                                                  "assets/user.png",
+                                                  height: 33,
+                                                  width: 33,
+                                                ),
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : size.width > 768
+                                                          ? 25
+                                                          : 20,
+                                                ),
+                                                Text(
+                                                  users.name,
+                                                  style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : size.width > 768
+                                                          ? 25
+                                                          : 10,
+                                                ),
+                                              ],
+                                            )),
+                                      ),
+                                      Expanded(child: SizedBox()),
+                                    ],
                                   ),
-                                  Expanded(child: SizedBox()),
-                                ],
-                              ),
-                            ),
-                          );
-                        }),
-                  ),
-                  Container(
-                    height: 25,
-                    width: size.width / 1.5,
-                    decoration: BoxDecoration(
-                        color: Colors.orangeAccent.withOpacity(0.5),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15))),
-                    child: Center(
-                        child: Text("Made with ❤️ during Hacktoberfest")),
-                  )
-                ],
-              ))),
+                                ),
+                              );
+                            }),
+                      ),
+                      Container(
+                        height: 25,
+                        width: size.width / 1.5,
+                        decoration: BoxDecoration(
+                            color: Colors.orangeAccent.withOpacity(0.5),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15))),
+                        child: Center(
+                            child: Text("Made with ❤️ during Hacktoberfest")),
+                      )
+                    ],
+                  )))),
     );
   }
 }
