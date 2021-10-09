@@ -45,8 +45,35 @@
     "description": "Made my first few PRs and I'm totally loving it. Never thought open-source contribution would be so much fun."
   },
   {
+    "name": "Gaurav Verma",
+    "description": "A beginner in programming, whole new to open source. It's such an amazing feeling in contributing to projects that are being used by people over the world."
+  },
+  {
     "name": "Muzammil khan",
     "description": "Started my journey to contributing in Open Source via Hacktoberfest this year"
+  },
+  {
+    "name": "Abhinav Suman",
+    "description": "Just Curious about a start that is necessary and It is so much fun."
+  },
+  { 
+    "name": "Thirawat Prasert",
+    "description": "I've been waiting for this moment for years to come to contribute to this event, it feels so exciting."
+  },
+  {
+    "name": "Abhishek D",
+    "description": "Hacktoberfest is a wonderful opportunity to contribute to Open Source and become a part of the community. I got to learn quite a lot in the long run. Looking forward to more such challenges."
+  },
+  {
+    "name": "Meet Paija",
+    "description": "I had fun contributing in open source projects, I participated in octoberfest-2019, It was a great learning and wanted to keep the same energy"
+  },
+  {
+    "name": "Bageeradhan K H",
+    "description": "hacktoberfest is a great opportunity to start our journey in open source contribution. It's really great to be a part of this community"
+  },
+  {
+    "name": "Danny",
+    "description": "Hacktoberfest was giving opportunity for us to contribute open source repo, like github and gitlab. I am web developer and I am helping react and html project."
   }
-  
 ]
