@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:hacktoberfest/screens/homepage.screens.dart';
 
 void main() {
@@ -21,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: '1stHacktoberfest',
       home: HomePage(),
-      theme: ThemeData(accentColor: Colors.orange),
+      theme: ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
     );
   }
 }

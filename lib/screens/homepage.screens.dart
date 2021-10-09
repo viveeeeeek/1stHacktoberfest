@@ -11,16 +11,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //
   List<Users>? _users;
-  late bool _loading;
 
   @override
   void initState() {
     super.initState();
-    _loading = true;
     Services.getUsers().then((users) {
       setState(() {
         _users = users;
-        _loading = false;
       });
     });
   }
