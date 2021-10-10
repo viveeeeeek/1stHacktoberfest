@@ -55,111 +55,114 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 5,
                       ),
-                      Expanded(
-                        child: ListView.builder(
-                            itemCount: _users == null ? 0 : _users!.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              Users users = _users![index];
-                              return Padding(
-
-                                padding: const EdgeInsets.all(8.0),
-                                child: InkWell(
-                                  child: Row(
-
-                                    children: [
-                                      Expanded(child: SizedBox()),
-                                      InkWell(
-
-                                        splashColor: Colors.orangeAccent
-                                            .withOpacity(0.5),
-                                        hoverColor: Colors.orangeAccent,
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      DetailScreen(
-                                                          name: users.name,
-                                                          description: users
-                                                              .description)));
-                                        },
-                                        child: Container(
-
-                                            height: size.height / 10,
-                                            width: size.width > 1000
-                                                ? size.width / 3.2
-                                                : size.width > 768
-                                                    ? size.width / 3
-                                                    : size.width / 1.5,
-                                            decoration: BoxDecoration(
-
-                                                color: colorProvidor(index).withOpacity(0.5),
-                                                border: Border.all(
-                                                  width: 3,
-                                                    color: Color(0xFF00C598)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(50.0))),
-                                            child: Row(
-                                              children: [
-                                                SizedBox(
+                      !_loading
+                          ? Expanded(
+                              child: ListView.builder(
+                                  itemCount:
+                                      _users == null ? 0 : _users!.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    Users users = _users![index];
+                                    return Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: InkWell(
+                                        child: Row(
+                                          children: [
+                                            Expanded(child: SizedBox()),
+                                            InkWell(
+                                              splashColor: Colors.orangeAccent
+                                                  .withOpacity(0.5),
+                                              hoverColor: Colors.orangeAccent,
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DetailScreen(
+                                                                name:
+                                                                    users.name,
+                                                                description: users
+                                                                    .description)));
+                                              },
+                                              child: Container(
+                                                  height: size.height / 10,
                                                   width: size.width > 1000
-                                                      ? 35
+                                                      ? size.width / 3.2
                                                       : size.width > 768
-                                                          ? 25
-                                                          : 20,
-                                                ),
-                                                Image.asset(
-                                                  "assets/user.png",
-                                                  height: 25,
-                                                  width: 25,
-                                                ),
-                                                SizedBox(
-                                                  width: size.width > 1000
-                                                      ? 35
-                                                      : size.width > 768
-                                                          ? 25
-                                                          : 20,
-                                                ),
-                                                Text(
-                                                  users.name,
-                                                  style: TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                SizedBox(
-                                                  width: size.width > 1000
-                                                      ? 35
-                                                      : size.width > 768
-                                                          ? 25
-                                                          : 10,
-                                                ),
-                                              ],
-                                            )),
+                                                          ? size.width / 3
+                                                          : size.width / 1.5,
+                                                  decoration: BoxDecoration(
+                                                      color:
+                                                          colorProvidor(index)
+                                                              .withOpacity(0.5),
+                                                      border: Border.all(
+                                                          width: 3,
+                                                          color: Color(
+                                                              0xFF00C598)),
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  50.0))),
+                                                  child: Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : size.width > 768
+                                                                ? 25
+                                                                : 20,
+                                                      ),
+                                                      Image.asset(
+                                                        "assets/user.png",
+                                                        height: 25,
+                                                        width: 25,
+                                                      ),
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : size.width > 768
+                                                                ? 25
+                                                                : 20,
+                                                      ),
+                                                      Text(
+                                                        users.name,
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : size.width > 768
+                                                                ? 25
+                                                                : 10,
+                                                      ),
+                                                    ],
+                                                  )),
+                                            ),
+                                            Expanded(child: SizedBox()),
+                                          ],
+                                        ),
                                       ),
-                                      Expanded(child: SizedBox()),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }),
-                      ),
+                                    );
+                                  }),
+                            )
+                          : CircularProgressIndicator(),
                     ],
                   )))),
     );
   }
 }
 
-Color colorProvidor(int index) 
-{
-  if(index%4==0)
+Color colorProvidor(int index) {
+  if (index % 4 == 0)
     return Color(0xFFB6EDDC);
-  else if(index%4==1)
+  else if (index % 4 == 1)
     return Color(0xFFA3C26D);
-  else if(index%4==2)
+  else if (index % 4 == 2)
     return Color(0xFFCA7C00);
   else
     return Color(0xFFDE430E);
 }
-
- 
