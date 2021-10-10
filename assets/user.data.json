@@ -95,5 +95,9 @@
    {
     "name": "Pavel",
     "description": "Hacktoberfest was giving opportunity for us to contribute open source repo, like github and gitlab. I am web developer and I am helping react and html project."
-  }
+  },
+  {
+    "name": "Deep",
+    "description": "Hacktoberfest is a great opportunity for newcomers to start their journey to open-source. Its a wonderful experience to be a part of the open-source community and you learn a lot while contributing."
+    } 
 ]
