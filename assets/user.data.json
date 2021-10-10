@@ -53,16 +53,56 @@
     "description": "Started my journey to contributing in Open Source via Hacktoberfest this year"
   },
   {
+    "name": "Ebhomenye Emmanuel",
+    "description": "Mobile App Developer. First time participating in Hacktoberfest and contributing to open source."
+  },
+  {
     "name": "Abhinav Suman",
     "description": "Just Curious about a start that is necessary and It is so much fun."
   },
   {
+    "name": "Irvan Alfaridzi",
+    "description": "This is my first time to join Haktoberfest event and so exited to contribute, Happy Coding!"
+  },
+  { 
     "name": "Thirawat Prasert",
     "description": "I've been waiting for this moment for years to come to contribute to this event, it feels so exciting."
   },
   {
     "name": "Yash-RajSingh",
     "description": "Having tons of fun making open source contributions as a first timer."
-  }
-  
+  },
+  {
+    "name": "Abhishek D",
+    "description": "Hacktoberfest is a wonderful opportunity to contribute to Open Source and become a part of the community. I got to learn quite a lot in the long run. Looking forward to more such challenges."
+  },
+  {
+    "name": "Meet Paija",
+    "description": "I had fun contributing in open source projects, I participated in octoberfest-2019, It was a great learning and wanted to keep the same energy"
+  },
+  {
+    "name": "Bageeradhan K H",
+    "description": "hacktoberfest is a great opportunity to start our journey in open source contribution. It's really great to be a part of this community"
+  },
+  {
+    "name": "Danny",
+    "description": "Hacktoberfest was giving opportunity for us to contribute open source repo, like github and gitlab. I am web developer and I am helping react and html project."
+  },
+  {
+    "name": "Yatendra",
+    "description": "My journey as a opensource contributor has begin now, If it weren't for Hacktoberfest I have never started it. So experience is awesome love every open source contribution."
+  },
+  {
+    "name": "Ruchira Perera",
+    "description": "This is my first time involving with hacktoberfest.hackertoberfest is one of major events that focusing on to improve the enthusiam in opensource projects.I love and admire the services are done by hacktoberfest for opensource projects.From now, I determine to give my assistance and support for opensource projects.Thank you hacktoberfest"
+  },
+   {
+    "name": "Pavel",
+    "description": "Hacktoberfest was giving opportunity for us to contribute open source repo, like github and gitlab. I am web developer and I am helping react and html project."
+  },
+  {
+    "name": "Deep",
+    "description": "Hacktoberfest is a great opportunity for newcomers to start their journey to open-source. Its a wonderful experience to be a part of the open-source community and you learn a lot while contributing."
+    } 
+
 ]
