@@ -69,6 +69,10 @@
     "description": "I've been waiting for this moment for years to come to contribute to this event, it feels so exciting."
   },
   {
+    "name": "Yash-RajSingh",
+    "description": "Having tons of fun making open source contributions as a first timer."
+  },
+  {
     "name": "Abhishek D",
     "description": "Hacktoberfest is a wonderful opportunity to contribute to Open Source and become a part of the community. I got to learn quite a lot in the long run. Looking forward to more such challenges."
   },
@@ -100,4 +104,5 @@
     "name": "Deep",
     "description": "Hacktoberfest is a great opportunity for newcomers to start their journey to open-source. Its a wonderful experience to be a part of the open-source community and you learn a lot while contributing."
     } 
+
 ]
