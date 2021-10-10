@@ -61,12 +61,15 @@ class _HomePageState extends State<HomePage> {
                             itemBuilder: (BuildContext context, int index) {
                               Users users = _users![index];
                               return Padding(
+
                                 padding: const EdgeInsets.all(8.0),
                                 child: InkWell(
                                   child: Row(
+
                                     children: [
                                       Expanded(child: SizedBox()),
                                       InkWell(
+
                                         splashColor: Colors.orangeAccent
                                             .withOpacity(0.5),
                                         hoverColor: Colors.orangeAccent,
@@ -81,6 +84,7 @@ class _HomePageState extends State<HomePage> {
                                                               .description)));
                                         },
                                         child: Container(
+
                                             height: size.height / 10,
                                             width: size.width > 1000
                                                 ? size.width / 3.2
@@ -88,10 +92,13 @@ class _HomePageState extends State<HomePage> {
                                                     ? size.width / 3
                                                     : size.width / 1.5,
                                             decoration: BoxDecoration(
-                                                color:
-                                                    Colors.orange.withAlpha(50),
+
+                                                color: colorProvidor(index).withOpacity(0.5),
+                                                border: Border.all(
+                                                  width: 3,
+                                                    color: Color(0xFF00C598)),
                                                 borderRadius: BorderRadius.all(
-                                                    Radius.circular(8.0))),
+                                                    Radius.circular(50.0))),
                                             child: Row(
                                               children: [
                                                 SizedBox(
@@ -143,8 +150,16 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+Color colorProvidor(int index) 
+{
+  if(index%4==0)
+    return Color(0xFFB6EDDC);
+  else if(index%4==1)
+    return Color(0xFFA3C26D);
+  else if(index%4==2)
+    return Color(0xFFCA7C00);
+  else
+    return Color(0xFFDE430E);
+}
+
  
-
-
-
-            //         
