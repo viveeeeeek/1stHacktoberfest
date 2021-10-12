@@ -8,7 +8,7 @@
 
 Before you start making contribution make these things clear 
 
-1) Dont make spam PR's like just add dots (.) in the file.
+1) Dont make spam PR's like just add adding (.) and spaces in the file.
 2) Make sure you add some value to the repository.
 3) Spam PR's wont get merged
 
