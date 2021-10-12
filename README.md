@@ -1,3 +1,5 @@
+<h2>⚠️ Only accepting contributions made to Flutter app. Any contributions made in user.data.json file wont be accepted ⚠️</h2>
+
 <h2>Web and Android app build over Flutter. Here in this app e are fetching JSON file from network creating its model passing data in it and then showing that data in our app as a widget.</h2>
 
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
