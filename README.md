@@ -1,3 +1,5 @@
+<h2>Web and Android app build over Flutter. Here in this app e are fetching JSON file from network creating its model passing data in it and then showing that data in our app as a widget.</h2>
+
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
 ## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
 ![image](https://user-images.githubusercontent.com/64553247/136698353-9a5eea59-d78d-4882-8aa2-9a040ffac054.png)
@@ -6,9 +8,9 @@
 
 Before you start making contribution make these things clear 
 
-1) Star this repo ( Important for you PR to get merged. )
-2) Dont make spam PR's like just add dots (.) in the file.
-3) Make sure you add some value to the repository.
+1) Dont make spam PR's like just add dots (.) in the file.
+2) Make sure you add some value to the repository.
+3) Spam PR's wont get merged
 
 <div align="center">
     <pre>Stargazers</pre>
