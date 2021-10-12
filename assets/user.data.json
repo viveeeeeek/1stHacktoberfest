@@ -100,14 +100,14 @@
     "name": "Ruchira Perera",
     "description": "This is my first time involving with hacktoberfest.hackertoberfest is one of major events that focusing on to improve the enthusiam in opensource projects.I love and admire the services are done by hacktoberfest for opensource projects.From now, I determine to give my assistance and support for opensource projects.Thank you hacktoberfest"
   },
-   {
+  {
     "name": "Pavel",
     "description": "Hacktoberfest was giving opportunity for us to contribute open source repo, like github and gitlab. I am web developer and I am helping react and html project."
   },
   {
     "name": "Deep",
     "description": "Hacktoberfest is a great opportunity for newcomers to start their journey to open-source. Its a wonderful experience to be a part of the open-source community and you learn a lot while contributing."
-    },
+  },
   {
     "name": "Javeria Tabassum",
     "description": "Hacktoberfest 2021 is giving us a great chance to learn and grow more by contributing in an open source platform and develop many productive things together. It's a nice experience of contributing in an open source."
@@ -124,12 +124,17 @@
     "name": "Aftab Bagwan",
     "description": "This is my first time to join Haktoberfest event and so exited to contribute."
     },
-   {
+  {
     "name": "Abiraj Rajendran",
     "description": "First time participation in Hacktoberfest, would love to learn about open source and do more in future!"
     },
-    {
-      "name": "Hanif Naufal",
-      "description": "First time to join hacktoberfest, and really excited"
-    }
+  {
+   "name": "Andrei Mihale",
+   "description": "This is my first time participating in Hacktoberfest. I would love to learn open source and contribute more in future"
+  },
+  {
+    "name": "Hanif Naufal",
+    "description": "First time to join hacktoberfest, and really excited"
+  }
+
 ]
