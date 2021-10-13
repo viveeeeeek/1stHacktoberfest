@@ -1,6 +1,6 @@
 <h2>⚠️ Only accepting contributions made to Flutter app. Any other contributions wont be accepted ⚠️</h2>
 
-<h2>Web and Android app build over Flutter. Here in this app e are fetching JSON file from network creating its model passing data in it and then showing that data in our app as a widget.</h2>
+<h2>Web and Android app build over Flutter. Here in this app we are fetching JSON file from network creating its model passing data in it and then showing that data in our app as a list widget.</h2>
 
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
 ## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
