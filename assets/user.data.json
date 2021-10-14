@@ -154,7 +154,9 @@
   {
     "name": "Dhanushan",
     "description": "This is my firt hacktoberfest experience , This is a great opportunity for me to be a part of open source community"
+  },
+  {
+    "name": "Vijayakumar",
+    "description": "Hacktoberfest is a yearly event to encourage people to contribute to open source in October."
   }
-  
-
 ]
