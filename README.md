@@ -4,8 +4,10 @@
 
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
 ## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
-![image](https://user-images.githubusercontent.com/64553247/136698353-9a5eea59-d78d-4882-8aa2-9a040ffac054.png)
 
+[](Dark theme is implemented by https://github.com/AwsmAsim)
+![1stHacktoberfest](https://user-images.githubusercontent.com/63421684/137514287-c87c5b48-5563-41b5-beae-f4a2bdfc11b5.gif)
+ Dark theme implemented by 
 <h2>⚠️ Contribution Instructions </h2>
 
 Before you start making contribution make these things clear 
