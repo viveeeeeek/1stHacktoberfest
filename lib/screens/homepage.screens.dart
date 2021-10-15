@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 import 'package:hacktoberfest/entities/user.entities.dart';
 import 'package:hacktoberfest/screens/detailed.screens.dart';
 import 'package:hacktoberfest/services/services.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
+
+  final darkMode;
+
+  HomePage({this.darkMode = false});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -28,20 +35,40 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final themeChange = Provider.of<DarkThemeProvider>(context);
+    
     return SafeArea(
       child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black12
+            ),
+            child: IconButton(icon: Icon(Icons.lightbulb,
+              color: widget.darkMode? Colors.white : Colors.yellow,
+            ), onPressed: (){
+              print(themeChange.dTheme);
+              themeChange.dTheme = !themeChange.dTheme;
+            }),
+          ),
+        ),
           body: Container(
               constraints: BoxConstraints.expand(),
               decoration: BoxDecoration(
+                  // color: Colors.black,
                   image: DecorationImage(
-                      image: AssetImage("assets/img.png"), fit: BoxFit.cover)),
+                      image: widget.darkMode? AssetImage("assets/img1.png") : AssetImage("assets/img.png"), fit: BoxFit.cover) //110E0C
+          ),
               child: Padding(
                   padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                   child: Column(
                     children: [
                       Image.asset(
-                        "assets/banner.png",
+                        widget.darkMode?"assets/banner_dark.png":"assets/banner.png",
                         height: size.height / 5,
                       ),
                       SizedBox(
@@ -50,7 +77,10 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "CONTRIBUTERS",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 25),
+                            fontWeight: FontWeight.bold, fontSize: 25,
+                            color: widget.darkMode ? Colors.white : Colors.black,
+                        ),
+
                       ),
                       SizedBox(
                         height: 5,
