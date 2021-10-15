@@ -7,7 +7,6 @@
 
 [Dark theme is implemented by https://github.com/AwsmAsim]: #nowhere
 ![1stHacktoberfest](https://user-images.githubusercontent.com/63421684/137514287-c87c5b48-5563-41b5-beae-f4a2bdfc11b5.gif)
- Dark theme implemented by 
 <h2>⚠️ Contribution Instructions </h2>
 
 Before you start making contribution make these things clear 
