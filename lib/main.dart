@@ -4,6 +4,9 @@ import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 import 'package:hacktoberfest/screens/homepage.screens.dart';
 import 'package:provider/provider.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
+
 void main() {
   runApp(MyApp());
 }
@@ -40,7 +43,13 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: '1stHacktoberfest',
             home: themeProvider.dTheme? HomePage(darkMode: true): HomePage(),
-            theme: ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
+            theme: ThemeData(
+              colorScheme:
+                  ColorScheme.fromSwatch().copyWith(secondary: Colors.orange),
+              textTheme: GoogleFonts.montserratTextTheme(
+                Theme.of(context).textTheme,
+              ),
+            ),
           );
         },
 
