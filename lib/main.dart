@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/controller/dark_theme_preference.dart';
 import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 
 import 'package:hacktoberfest/screens/homepage.screens.dart';
