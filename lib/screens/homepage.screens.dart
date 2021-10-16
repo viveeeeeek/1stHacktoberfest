@@ -61,7 +61,8 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                   // color: Colors.black,
                   image: DecorationImage(
-                      image: widget.darkMode? AssetImage("assets/img1.png") : AssetImage("assets/img.png"), fit: BoxFit.cover) //110E0C
+                      image: widget.darkMode? AssetImage("assets/img1.png") : AssetImage("assets/img.png"),
+                      fit: BoxFit.cover) //110E0C
           ),
               child: Padding(
                   padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -78,7 +79,6 @@ class _HomePageState extends State<HomePage> {
                         "CONTRIBUTERS",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 25,
-                            color: widget.darkMode ? Colors.white : Colors.black,
                         ),
 
                       ),
@@ -181,7 +181,10 @@ class _HomePageState extends State<HomePage> {
                             )
                           : CircularProgressIndicator(),
                     ],
-                  )))),
+                  ),
+              ),
+          ),
+      ),
     );
   }
 }

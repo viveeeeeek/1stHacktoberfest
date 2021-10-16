@@ -4,13 +4,20 @@ import 'package:hacktoberfest/controller/dark_theme_preference.dart';
 class DarkThemeProvider with ChangeNotifier{
 
   DarkThemePreference darkThemePreference = DarkThemePreference();
-  bool _dtheme = false;
-
-  bool get dTheme => _dtheme;
-
+  bool _dTheme = false;
+  var _bgImg = "assets/img.png", banner = "assets/banner.png";
+  bool get dTheme => _dTheme;
+  String get bgImg => _bgImg;
   set dTheme(bool val){
-    _dtheme = val;
+    _dTheme = val;
     darkThemePreference.setDarkTheme(val);
+    if(val){
+      _bgImg = "assets/img1.png";
+      banner = "assets/banner_dark.png";
+    }else{
+      _bgImg = "assets/img.png";
+      banner = "assets/banner.png";
+    }
     notifyListeners();
 
   }
