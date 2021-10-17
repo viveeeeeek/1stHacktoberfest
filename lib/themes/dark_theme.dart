@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class DarkTheme{
 
   static ThemeData theme(BuildContext context, bool isDarkTheme){
     return ThemeData(
+      textTheme: GoogleFonts.montserratTextTheme(
+        Theme.of(context).textTheme,
+      ),
       primarySwatch: Colors.red,
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
       scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
