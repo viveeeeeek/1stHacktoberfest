@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hacktoberfest/controller/dark_theme_preference.dart';
 import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 
 import 'package:hacktoberfest/screens/homepage.screens.dart';
+import 'package:hacktoberfest/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -16,6 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   DarkThemeProvider themeProvider = DarkThemeProvider();
+  DarkTheme darkTheme = DarkTheme();
 
   void getCurrentAppTheme() async{
     themeProvider.dTheme = await themeProvider.darkThemePreference.getTheme();
@@ -40,7 +43,17 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: '1stHacktoberfest',
             home: themeProvider.dTheme? HomePage(darkMode: true): HomePage(),
-            theme: ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
+            theme:DarkTheme.theme(context, themeProvider.dTheme),
+            // themeProvider.dTheme?DarkTheme.theme(context):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
+          // themeProvider.dTheme?ThemeData(
+            //   textTheme: TextTheme(
+            //     bodyText1: TextStyle(),
+            //     bodyText2: TextStyle(),
+            //   ).apply(
+            //     bodyColor: Colors.white,
+            //     displayColor: Colors.white,
+            //   ),
+            // ):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
           );
         },
 
