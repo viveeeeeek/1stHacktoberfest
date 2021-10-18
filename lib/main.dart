@@ -6,6 +6,7 @@ import 'package:hacktoberfest/screens/homepage.screens.dart';
 import 'package:hacktoberfest/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -43,7 +44,8 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: '1stHacktoberfest',
             home: themeProvider.dTheme? HomePage(darkMode: true): HomePage(),
-            theme:DarkTheme.theme(context, themeProvider.dTheme),
+            theme: DarkTheme.theme(context, themeProvider.dTheme),
+            
             // themeProvider.dTheme?DarkTheme.theme(context):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
           // themeProvider.dTheme?ThemeData(
             //   textTheme: TextTheme(
