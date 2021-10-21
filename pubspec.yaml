@@ -25,6 +25,9 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.3
+  provider: ^6.0.1
+  shared_preferences: ^2.0.7
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:

@@ -20,12 +20,14 @@
 # is commented out by default.
 #.vscode/
 
-# Flutter/Dart/Pub related
+# Flutter/Dart/Pub/Firebase related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.firebase/
 .flutter-plugins
 .flutter-plugins-dependencies
+.firebaserc
 .packages
 .pub-cache/
 .pub/
