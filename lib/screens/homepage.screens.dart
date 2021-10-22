@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                   height: 10,
                 ),
                 Text(
-                  "CONTRIBUTERS",
+                  "CONTRIBUTORS",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25,
@@ -93,17 +93,17 @@ class _HomePageState extends State<HomePage> {
                     ? Expanded(
                         child: GridView.builder(
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        (MediaQuery.of(context).orientation ==
-                                                Orientation.landscape)
-                                            ? 2
-                                            : 2),
+                                SliverGridDelegateWithMaxCrossAxisExtent(
+                              maxCrossAxisExtent: 200,
+                              childAspectRatio: 3 / 2,
+                              crossAxisSpacing: 5.0,
+                              mainAxisSpacing: 5.0,
+                            ),
                             itemCount: _users == null ? 0 : _users!.length,
                             itemBuilder: (BuildContext context, int index) {
                               Users users = _users![index];
-                              return Padding(
-                                padding: const EdgeInsets.all(4.0),
+                              return Container(
+                                alignment: Alignment.center,
                                 child: InkWell(
                                   child: Column(
                                     children: [
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                                         },
                                         child: Container(
                                             height: size.height / 10,
-                                            width: size.width > 500
+                                            width: size.width > 1000
                                                 ? size.width / 3.2
                                                 : size.width > 768
                                                     ? size.width / 3
