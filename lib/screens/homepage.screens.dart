@@ -22,6 +22,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    getUsers();
+  }
+
+  getUsers() {
     _loading = true;
     Services.getUsers().then((users) {
       setState(() {
@@ -29,6 +33,17 @@ class _HomePageState extends State<HomePage> {
         _loading = false;
       });
     });
+  }
+
+  searchUser(String value) {
+    setState(() { _loading = true; });
+    if(value != "") {
+      Iterable<Users> getUser = _users!.where((e) => e.name.toLowerCase().contains(value.toLowerCase()));
+
+      setState(() { _loading = false; _users = getUser.toList(); });
+    } else {
+      getUsers();
+    }
   }
 
   @override
@@ -92,6 +107,27 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(
                   height: 5,
+                ),
+                Container(
+                  child: TextFormField(
+                    style: TextStyle(
+                      color: widget.darkMode ? Colors.white : Colors.black,
+                    ),
+                    cursorColor: widget.darkMode ? Colors.white : Colors.black,
+                    decoration: InputDecoration(
+                      hintText: "Search Contributers",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      hintStyle: TextStyle(
+                        color: widget.darkMode ? Colors.white : Colors.black
+                      ),
+                      fillColor: widget.darkMode ? Colors.white : Colors.black,
+                      focusColor: widget.darkMode ? Colors.white : Colors.black,
+                      hoverColor: widget.darkMode ? Colors.white : Colors.black,
+                    ),
+                    onChanged: (value) => searchUser(value),
+                  ),
                 ),
                 !_loading
                     ? Expanded(
