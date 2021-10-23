@@ -110,11 +110,21 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   child: TextFormField(
+                    style: TextStyle(
+                      color: widget.darkMode ? Colors.white : Colors.black,
+                    ),
+                    cursorColor: widget.darkMode ? Colors.white : Colors.black,
                     decoration: InputDecoration(
                       hintText: "Search Contributers",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(10),
                       ),
+                      hintStyle: TextStyle(
+                        color: widget.darkMode ? Colors.white : Colors.black
+                      ),
+                      fillColor: widget.darkMode ? Colors.white : Colors.black,
+                      focusColor: widget.darkMode ? Colors.white : Colors.black,
+                      hoverColor: widget.darkMode ? Colors.white : Colors.black,
                     ),
                     onChanged: (value) => searchUser(value),
                   ),
