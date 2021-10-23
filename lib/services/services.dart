@@ -10,6 +10,7 @@ class Services {
       final response = await http.get(Uri.parse(url));
       if (200 == response.statusCode) {
         final List<Users> users = usersFromJson(response.body);
+        users.sort((a, b) => a.name.compareTo(b.name));
         return users;
       } else {
         print("something went wrong");
