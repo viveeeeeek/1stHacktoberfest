@@ -4,6 +4,7 @@ import 'package:hacktoberfest/entities/user.entities.dart';
 import 'package:hacktoberfest/screens/detailed.screens.dart';
 import 'package:hacktoberfest/services/services.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   final darkMode;
@@ -36,18 +37,40 @@ class _HomePageState extends State<HomePage> {
   }
 
   searchUser(String value) {
-    setState(() { _loading = true; });
-    if(value != "") {
-      Iterable<Users> getUser = _users!.where((e) => e.name.toLowerCase().contains(value.toLowerCase()));
+    setState(() {
+      _loading = true;
+    });
+    if (value != "") {
+      Iterable<Users> getUser = _users!
+          .where((e) => e.name.toLowerCase().contains(value.toLowerCase()));
 
-      setState(() { _loading = false; _users = getUser.toList(); });
+      setState(() {
+        _loading = false;
+        _users = getUser.toList();
+      });
     } else {
       getUsers();
     }
   }
 
+  Future<void>? _launched;
+
+  Future<void> _launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'my_header_key': 'my_header_value'},
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    const String toLaunch = 'https://github.com/viveeeeeek/1stHacktoberfest';
     final size = MediaQuery.of(context).size;
     final themeChange = Provider.of<DarkThemeProvider>(context);
     final double itemHeight =
@@ -120,8 +143,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       hintStyle: TextStyle(
-                        color: widget.darkMode ? Colors.white : Colors.black
-                      ),
+                          color: widget.darkMode ? Colors.white : Colors.black),
                       fillColor: widget.darkMode ? Colors.white : Colors.black,
                       focusColor: widget.darkMode ? Colors.white : Colors.black,
                       hoverColor: widget.darkMode ? Colors.white : Colors.black,
@@ -270,6 +292,22 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => setState(() {
+            _launched = _launchInBrowser(toLaunch);
+          }),
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: FittedBox(child: Text('Github')),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+          backgroundColor: Colors.greenAccent,
+          elevation: 6,
         ),
       ),
     );
