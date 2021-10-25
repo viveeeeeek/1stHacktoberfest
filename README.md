@@ -3,7 +3,6 @@
 <h2>Web and Android app build over Flutter. Here in this app we are fetching JSON file from network creating its model passing data in it and then showing that data in our app as a list widget.</h2>
 
 ## 🔥 Live web preview available here : [here](https://firsthacktoberfest.web.app/#/)
-## 🔥 Download Android app from here : [here](https://drive.google.com/file/d/10NMc-RtWJUx6VLDMgIbtmCOjavWMaNHJ/view?usp=sharing)
 
 [Dark theme is implemented by https://github.com/AwsmAsim]: #nowhere
 ![1stHacktoberfest](https://user-images.githubusercontent.com/63421684/137514287-c87c5b48-5563-41b5-beae-f4a2bdfc11b5.gif)
