@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/themes/dark_theme.dart';
 
 class DetailScreen extends StatelessWidget {
   final name;
@@ -57,8 +56,11 @@ class DetailScreen extends StatelessWidget {
                               height: 5,
                               width: 75,
                               decoration: BoxDecoration(
-                                  color: Theme.of(context).scaffoldBackgroundColor==Colors.black?Colors.white60
-                                      :Colors.grey.withOpacity(0.3),
+                                  color: Theme.of(context)
+                                              .scaffoldBackgroundColor ==
+                                          Colors.black
+                                      ? Colors.white60
+                                      : Colors.grey.withOpacity(0.3),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(25))),
                             ),
@@ -69,7 +71,11 @@ class DetailScreen extends StatelessWidget {
                               padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
                               child: Container(
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context).scaffoldBackgroundColor==Colors.black?Colors.white60:Colors.grey.withOpacity(0.3),
+                                    color: Theme.of(context)
+                                                .scaffoldBackgroundColor ==
+                                            Colors.black
+                                        ? Colors.white60
+                                        : Colors.grey.withOpacity(0.3),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(15))),
                                 child: Padding(

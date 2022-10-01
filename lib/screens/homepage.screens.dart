@@ -55,13 +55,10 @@ class _HomePageState extends State<HomePage> {
 
   Future<void>? _launched;
 
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
+  Future<void> _launchInBrowser(Uri url) async {
+    if (await canLaunchUrl(url)) {
+      await launchUrl(
         url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
       );
     } else {
       throw 'Could not launch $url';
@@ -70,7 +67,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const String toLaunch = 'https://github.com/viveeeeeek/1stHacktoberfest';
+    Uri toLaunch = Uri.parse('https://github.com/viveeeeeek/1stHacktoberfest');
     final size = MediaQuery.of(context).size;
     final themeChange = Provider.of<DarkThemeProvider>(context);
     final double itemHeight =
@@ -293,6 +290,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+
+        //Floating action button for github
         floatingActionButton: FloatingActionButton(
           onPressed: () => setState(() {
             _launched = _launchInBrowser(toLaunch);
@@ -303,7 +302,7 @@ class _HomePageState extends State<HomePage> {
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(10),
+              Radius.circular(15),
             ),
           ),
           backgroundColor: Colors.greenAccent,
