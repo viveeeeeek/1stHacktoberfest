@@ -6,6 +6,8 @@
 ![1stHacktoberfest](https://user-images.githubusercontent.com/63421684/137514287-c87c5b48-5563-41b5-beae-f4a2bdfc11b5.gif)
 <h2>⚠️ Contribution Instructions </h2>
 
+##  [How to contribute?](https://github.com/viveeeeeek/1stHacktoberfest/blob/master/CONTRIBUTING.md)
+
 Before you start making contribution make these things clear 
 
 1) Dont make spam PR's like just add adding (.) and spaces in the file.
