@@ -222,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                                                       child: Text(
                                                         users.name,
                                                         style: TextStyle(
-                                                            fontSize: 18,
+                                                            fontSize: 15,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
