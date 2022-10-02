@@ -219,13 +219,15 @@ class _HomePageState extends State<HomePage> {
                                                       padding:
                                                           const EdgeInsets.all(
                                                               8.0),
-                                                      child: Text(
-                                                        users.name,
-                                                        style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
+                                                      child: FittedBox(
+                                                        child: Text(
+                                                          users.name,
+                                                          style: TextStyle(
+                                                              fontSize: 18,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -267,12 +269,14 @@ class _HomePageState extends State<HomePage> {
                                                           ? 35
                                                           : 25,
                                                     ),
-                                                    Text(
-                                                      users.name,
-                                                      style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                                    FittedBox(
+                                                      child: Text(
+                                                        users.name,
+                                                        style: TextStyle(
+                                                            fontSize: 18,
+                                                            fontWeight:
+                                                                FontWeight.bold),
+                                                      ),
                                                     ),
                                                     SizedBox(
                                                       width: size.width > 1000
