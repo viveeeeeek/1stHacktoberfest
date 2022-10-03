@@ -181,56 +181,49 @@ class _HomePageState extends State<HomePage> {
                                                           users.description)));
                                     },
                                     child: size.width < 784
-                                        ? Container(
-                                            height: size.height / 5,
-                                            width: size.width / 3.4,
-                                            decoration: BoxDecoration(
-                                                color: colorProvidor(index)
-                                                    .withOpacity(0.5),
-                                                border: Border.all(
-                                                    width: 3,
-                                                    color: const Color(
-                                                        0xFF00C598)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30.0))),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SizedBox(
-                                                  height: 25,
-                                                ),
-                                                Center(
-                                                  child: Image.asset(
-                                                    "assets/user.png",
-                                                    alignment: Alignment.center,
-                                                    height: 25,
-                                                    width: 25,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 20,
-                                                ),
-                                                Expanded(
-                                                  child: Center(
-                                                    child: Container(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
-                                                      child: Text(
-                                                        users.name,
-                                                        style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
+                                        ? Material(
+                                            elevation: 10,
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(30.0)),
+                                            color: Colors.white,
+                                            child: Container(
+                                              height: size.height / 5,
+                                              width: size.width / 3.4,
+                                              decoration: BoxDecoration(
+                                                  color: colorProvidor(index)
+                                                      .withOpacity(0.5),
+                                                  border: Border.all(
+                                                      width: 3,
+                                                      color: const Color(
+                                                          0xFF00C598)),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              30.0))),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Center(
+                                                    child: Image.asset(
+                                                      "assets/user.png",
+                                                      height: 25,
+                                                      width: 25,
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                  Text(
+                                                    users.name,
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           )
                                         : Container(
