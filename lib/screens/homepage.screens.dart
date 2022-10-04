@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                   // title: Text('SilverAppBar'),
                   background: Image.asset(
                     widget.darkMode ? "assets/banner_dark.png" : "assets/banner.png",
-                    fit: BoxFit.fitWidth,
+                    // fit: BoxFit.fitWidth,
                   ),
                 ),
                 // pinned: true,
