@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   //
   List<Users>? _users;
   late bool _loading;
+  final text = TextEditingController();
 
   @override
   void initState() {
@@ -130,6 +131,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   child: TextFormField(
+                    controller: text,
                     style: TextStyle(
                       color: widget.darkMode ? Colors.white : Colors.black,
                     ),
@@ -145,7 +147,14 @@ class _HomePageState extends State<HomePage> {
                       focusColor: widget.darkMode ? Colors.white : Colors.black,
                       hoverColor: widget.darkMode ? Colors.white : Colors.black,
                     ),
-                    onChanged: (value) => searchUser(value),
+                    onChanged: (value) {
+                      searchUser(value);
+                    },
+                    onFieldSubmitted: (value) {
+                      text.clear();
+                      searchUser("");
+                    },
+                    textInputAction: TextInputAction.done,
                   ),
                 ),
                 !_loading
@@ -168,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                   padding: const EdgeInsets.all(10),
                                   child: InkWell(
                                     splashColor:
-                                        Colors.orangeAccent.withOpacity(0.5),
+                                        Colors.orangeAccent.withOpacity(0),
                                     hoverColor: Colors.orangeAccent,
                                     onTap: () {
                                       Navigator.push(
@@ -275,7 +284,8 @@ class _HomePageState extends State<HomePage> {
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             fontWeight:
-                                                                FontWeight.bold),
+                                                                FontWeight
+                                                                    .bold),
                                                       ),
                                                     ),
                                                     SizedBox(

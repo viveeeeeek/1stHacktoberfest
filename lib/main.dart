@@ -4,6 +4,7 @@ import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 import 'package:hacktoberfest/screens/homepage.screens.dart';
 import 'package:hacktoberfest/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:hacktoberfest/Loading.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
             // Hide the debug banner
             debugShowCheckedModeBanner: false,
             title: '1stHacktoberfest',
-            home: themeProvider.dTheme ? HomePage(darkMode: true) : HomePage(),
+            home: themeProvider.dTheme ? HomePage(darkMode: true) : Loading(),
             theme: DarkTheme.theme(context, themeProvider.dTheme),
 
             // themeProvider.dTheme?DarkTheme.theme(context):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
