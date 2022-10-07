@@ -5,10 +5,6 @@
 
 https://user-images.githubusercontent.com/62661565/194566215-e5ec6e55-cc33-462d-8341-e60dbf523cdc.mov
 
-
-
-[Dark theme is implemented by https://github.com/AwsmAsim]: #nowhere
-![1stHacktoberfest](https://user-images.githubusercontent.com/63421684/137514287-c87c5b48-5563-41b5-beae-f4a2bdfc11b5.gif)
 <h2>⚠️ Contribution Instructions </h2>
 
 ##  [How to contribute?](https://github.com/viveeeeeek/1stHacktoberfest/blob/master/CONTRIBUTING.md)
