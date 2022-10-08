@@ -9,7 +9,7 @@ class DarkTheme {
       ),
       primarySwatch: Colors.red,
       primaryColor: isDarkTheme ? Colors.black : Colors.white,
-      scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.white,
+      scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.grey[100],
       backgroundColor: isDarkTheme ? Colors.black : Color(0xffF1F5FB),
       indicatorColor: isDarkTheme ? Color(0xff0E1D36) : Color(0xffCBDCF8),
       hintColor: isDarkTheme ? Color(0xff280C0B) : Color(0xffEECED3),
