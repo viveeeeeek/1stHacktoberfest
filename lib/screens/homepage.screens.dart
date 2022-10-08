@@ -94,132 +94,162 @@ class _HomePageState extends State<HomePage> {
                 }),
           ),
         ),
-        body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-              // color: Colors.black,
-              image: DecorationImage(
-                  image: widget.darkMode
-                      ? AssetImage("assets/img1.png")
-                      : AssetImage("assets/img.png"),
-                  fit: BoxFit.cover) //110E0C
-              ),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-            child: Column(
-              children: [
-                Image.asset(
-                  widget.darkMode
-                      ? "assets/banner_dark.png"
-                      : "assets/banner.png",
-                  height: size.height / 5,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "CONTRIBUTERS",
-                  style: TextStyle(
-                    color: widget.darkMode ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
+        body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 150,
+                backgroundColor: widget.darkMode
+                    ? Colors.black
+                    : Color.fromARGB(255, 211, 237, 239),
+                flexibleSpace: FlexibleSpaceBar(
+                  // title: Text('SilverAppBar'),
+                  background: Image.asset(
+                    widget.darkMode
+                        ? "assets/banner_dark.png"
+                        : "assets/banner.png",
                   ),
                 ),
-                SizedBox(
-                  height: 5,
+                // pinned: true,
+                // floating: true,
+                // snap: true,
+              )
+            ];
+          },
+          body: Container(
+            constraints: BoxConstraints.expand(),
+            decoration: BoxDecoration(
+                // color: Colors.black,
+                image: DecorationImage(
+                    image: widget.darkMode
+                        ? AssetImage("assets/img1.png")
+                        : AssetImage("assets/img.png"),
+                    fit: BoxFit.cover) //110E0C
                 ),
-                Container(
-                  child: TextFormField(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              child: Column(
+                children: [
+                  // Image.asset(
+                  //   widget.darkMode
+                  //       ? "assets/banner_dark.png"
+                  //       : "assets/banner.png",
+                  //   height: size.height / 5,
+                  // ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  Text(
+                    "CONTRIBUTERS",
                     style: TextStyle(
                       color: widget.darkMode ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
                     ),
-                    cursorColor: widget.darkMode ? Colors.white : Colors.black,
-                    decoration: InputDecoration(
-                      hintText: "Search Contributers",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintStyle: TextStyle(
-                          color: widget.darkMode ? Colors.white : Colors.black),
-                      fillColor: widget.darkMode ? Colors.white : Colors.black,
-                      focusColor: widget.darkMode ? Colors.white : Colors.black,
-                      hoverColor: widget.darkMode ? Colors.white : Colors.black,
-                    ),
-                    onChanged: (value) => searchUser(value),
                   ),
-                ),
-                !_loading
-                    ? Expanded(
-                        child: GridView.builder(
-                            itemCount: _users == null ? 0 : _users!.length,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount:
-                                        MediaQuery.of(context).orientation ==
-                                                Orientation.landscape
-                                            ? 3
-                                            : 2,
-                                    crossAxisSpacing: 8,
-                                    mainAxisSpacing: 8,
-                                    childAspectRatio: (itemWidth / itemHeight)),
-                            itemBuilder: (BuildContext context, int index) {
-                              Users users = _users![index];
-                              return Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: InkWell(
-                                    splashColor:
-                                        Colors.orangeAccent.withOpacity(0.5),
-                                    hoverColor: Colors.orangeAccent,
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  DetailScreen(
-                                                      name: users.name,
-                                                      description:
-                                                          users.description)));
-                                    },
-                                    child: size.width < 784
-                                        ? Container(
-                                            height: size.height / 5,
-                                            width: size.width / 3.4,
-                                            decoration: BoxDecoration(
-                                                color: colorProvidor(index)
-                                                    .withOpacity(0.5),
-                                                border: Border.all(
-                                                    width: 3,
-                                                    color: const Color(
-                                                        0xFF00C598)),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(30.0))),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SizedBox(
-                                                  height: 25,
-                                                ),
-                                                Center(
-                                                  child: Image.asset(
-                                                    "assets/user.png",
-                                                    alignment: Alignment.center,
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: widget.darkMode ? Colors.white : Colors.black,
+                      ),
+                      cursorColor:
+                          widget.darkMode ? Colors.white : Colors.black,
+                      decoration: InputDecoration(
+                        hintText: "Search Contributers",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintStyle: TextStyle(
+                            color:
+                                widget.darkMode ? Colors.white : Colors.black),
+                        fillColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                        focusColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                        hoverColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                      ),
+                      onChanged: (value) => searchUser(value),
+                    ),
+                  ),
+                  !_loading
+                      ? Expanded(
+                          child: GridView.builder(
+                              itemCount: _users == null ? 0 : _users!.length,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount:
+                                          MediaQuery.of(context).orientation ==
+                                                  Orientation.landscape
+                                              ? 3
+                                              : 2,
+                                      crossAxisSpacing: 8,
+                                      mainAxisSpacing: 8,
+                                      childAspectRatio:
+                                          (itemWidth / itemHeight)),
+                              itemBuilder: (BuildContext context, int index) {
+                                Users users = _users![index];
+                                return Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: InkWell(
+                                      splashColor:
+                                          Colors.orangeAccent.withOpacity(0.5),
+                                      hoverColor: Colors.orangeAccent,
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetailScreen(
+                                                        name: users.name,
+                                                        description: users
+                                                            .description)));
+                                      },
+                                      child: size.width < 784
+                                          ? Container(
+                                              height: size.height / 5,
+                                              width: size.width / 3.4,
+                                              decoration: BoxDecoration(
+                                                  color: colorProvidor(index)
+                                                      .withOpacity(0.5),
+                                                  border: Border.all(
+                                                      width: 3,
+                                                      color: const Color(
+                                                          0xFF00C598)),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(
+                                                              30.0))),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  SizedBox(
                                                     height: 25,
-                                                    width: 25,
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  width: 20,
-                                                ),
-                                                Expanded(
-                                                  child: Center(
-                                                    child: Container(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8.0),
-                                                      child: FittedBox(
+                                                  Center(
+                                                    child: Image.asset(
+                                                      "assets/user.png",
+                                                      alignment:
+                                                          Alignment.center,
+                                                      height: 25,
+                                                      width: 25,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Expanded(
+                                                    child: Center(
+                                                      child: Container(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8.0),
                                                         child: Text(
                                                           users.name,
                                                           style: TextStyle(
@@ -231,66 +261,66 @@ class _HomePageState extends State<HomePage> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        : Container(
-                                            height: 50,
-                                            width: 50,
-                                            child: Container(
-                                                decoration: BoxDecoration(
-                                                    color: colorProvidor(index)
-                                                        .withOpacity(0.5),
-                                                    border: Border.all(
-                                                        width: 3,
-                                                        color:
-                                                            Color(0xFF00C598)),
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50.0))),
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(
-                                                      width: size.width > 1000
-                                                          ? 35
-                                                          : size.width > 768
-                                                              ? 25
-                                                              : 20,
-                                                    ),
-                                                    Image.asset(
-                                                      "assets/user.png",
-                                                      height: 25,
-                                                      width: 25,
-                                                    ),
-                                                    SizedBox(
-                                                      width: size.width > 1000
-                                                          ? 35
-                                                          : 25,
-                                                    ),
-                                                    FittedBox(
-                                                      child: Text(
+                                                ],
+                                              ),
+                                            )
+                                          : Container(
+                                              height: 50,
+                                              width: 50,
+                                              child: Container(
+                                                  decoration: BoxDecoration(
+                                                      color:
+                                                          colorProvidor(index)
+                                                              .withOpacity(0.5),
+                                                      border: Border.all(
+                                                          width: 3,
+                                                          color: Color(
+                                                              0xFF00C598)),
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  50.0))),
+                                                  child: Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : size.width > 768
+                                                                ? 25
+                                                                : 20,
+                                                      ),
+                                                      Image.asset(
+                                                        "assets/user.png",
+                                                        height: 25,
+                                                        width: 25,
+                                                      ),
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : 25,
+                                                      ),
+                                                      Text(
                                                         users.name,
                                                         style: TextStyle(
                                                             fontSize: 18,
                                                             fontWeight:
-                                                                FontWeight.bold),
+                                                                FontWeight
+                                                                    .bold),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: size.width > 1000
-                                                          ? 35
-                                                          : 25,
-                                                    ),
-                                                  ],
-                                                )),
-                                          ),
-                                  ));
-                            }),
-                      )
-                    : CircularProgressIndicator(),
-              ],
+                                                      SizedBox(
+                                                        width: size.width > 1000
+                                                            ? 35
+                                                            : 25,
+                                                      ),
+                                                    ],
+                                                  )),
+                                            ),
+                                    ));
+                              }),
+                        )
+                      : CircularProgressIndicator(),
+                ],
+              ),
             ),
           ),
         ),
