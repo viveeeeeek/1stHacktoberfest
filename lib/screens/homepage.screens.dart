@@ -96,60 +96,88 @@ class _HomePageState extends State<HomePage> {
                 }),
           ),
         ),
-        body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-              // color: Colors.black,
-              image: DecorationImage(
-                  image: widget.darkMode
-                      ? AssetImage("assets/img1.png")
-                      : AssetImage("assets/img.png"),
-                  fit: BoxFit.cover) //110E0C
-              ),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  widget.darkMode
-                      ? "assets/banner_dark.png"
-                      : "assets/banner.png",
-                  height: size.height / 5,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "CONTRIBUTERS",
-                  style: TextStyle(
-                    color: widget.darkMode ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
+        body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                expandedHeight: 150,
+                backgroundColor: widget.darkMode
+                    ? Colors.black
+                    : Color.fromARGB(255, 211, 237, 239),
+                flexibleSpace: FlexibleSpaceBar(
+                  // title: Text('SilverAppBar'),
+                  background: Image.asset(
+                    widget.darkMode
+                        ? "assets/banner_dark.png"
+                        : "assets/banner.png",
                   ),
                 ),
-                SizedBox(
-                  height: 5,
+                // pinned: true,
+                // floating: true,
+                // snap: true,
+              )
+            ];
+          },
+          body: Container(
+            constraints: BoxConstraints.expand(),
+            decoration: BoxDecoration(
+                // color: Colors.black,
+                image: DecorationImage(
+                    image: widget.darkMode
+                        ? AssetImage("assets/img1.png")
+                        : AssetImage("assets/img.png"),
+                    fit: BoxFit.cover) //110E0C
                 ),
-                Container(
-                  child: TextFormField(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              child: Column(
+                children: [
+                  // Image.asset(
+                  //   widget.darkMode
+                  //       ? "assets/banner_dark.png"
+                  //       : "assets/banner.png",
+                  //   height: size.height / 5,
+                  // ),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  Text(
+                    "CONTRIBUTERS",
                     style: TextStyle(
                       color: widget.darkMode ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
                     ),
-                    cursorColor: widget.darkMode ? Colors.white : Colors.black,
-                    decoration: InputDecoration(
-                      hintText: "Search Contributers",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      hintStyle: TextStyle(
-                          color: widget.darkMode ? Colors.white : Colors.black),
-                      fillColor: widget.darkMode ? Colors.white : Colors.black,
-                      focusColor: widget.darkMode ? Colors.white : Colors.black,
-                      hoverColor: widget.darkMode ? Colors.white : Colors.black,
-                    ),
-                    onChanged: (value) => searchUser(value),
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Container(
+                    child: TextFormField(
+                      style: TextStyle(
+                        color: widget.darkMode ? Colors.white : Colors.black,
+                      ),
+                      cursorColor:
+                          widget.darkMode ? Colors.white : Colors.black,
+                      decoration: InputDecoration(
+                        hintText: "Search Contributers",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintStyle: TextStyle(
+                            color:
+                                widget.darkMode ? Colors.white : Colors.black),
+                        fillColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                        focusColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                        hoverColor:
+                            widget.darkMode ? Colors.white : Colors.black,
+                      ),
+                      onChanged: (value) => searchUser(value),
+                    ),
+                  ),
+
                 ),
                 !_loading
                     ? _users != null && _users!.length != 0
@@ -319,6 +347,8 @@ class _HomePageState extends State<HomePage> {
                           )
                     : CircularProgressIndicator(),
               ],
+
+                
             ),
           ),
         ),
