@@ -11,7 +11,21 @@ class DetailScreen extends StatelessWidget {
     final displaySize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        // backgroundColor: Colors.white,
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
+          ),
+          backgroundColor: Colors.transparent,
+        ),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Colors.orange, Colors.yellow])),
