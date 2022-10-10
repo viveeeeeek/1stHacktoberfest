@@ -285,7 +285,8 @@ class _HomePageState extends State<HomePage> {
                                   ));
                             }),
                       )
-                    : CircularProgressIndicator(),
+                    : Expanded(
+                        child: Center(child: CircularProgressIndicator())),
               ],
             ),
           ),
