@@ -7,12 +7,14 @@ class SearchBar extends StatelessWidget {
   final TextEditingController controller;
   final void Function() onSearch;
   final void Function(String) onChanged;
-  const SearchBar({
-    Key? key,
-    required this.controller,
-    required this.onSearch,
-    required this.onChanged,
-  }) : super(key: key);
+  final GestureTapCallback clearButtonCallBack;
+  const SearchBar(
+      {Key? key,
+      required this.controller,
+      required this.onSearch,
+      required this.onChanged,
+      required this.clearButtonCallBack})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +30,12 @@ class SearchBar extends StatelessWidget {
               child: TextFormField(
                 controller: controller,
                 decoration: InputDecoration(
+                  suffixIcon: controller.text.isNotEmpty
+                      ? GestureDetector(
+                          onTap: clearButtonCallBack,
+                          child: Icon(Icons.clear),
+                        )
+                      : SizedBox.shrink(),
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(8),

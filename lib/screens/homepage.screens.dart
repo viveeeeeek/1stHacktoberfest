@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  // ignore: unused_field
   Future<void>? _launched;
 
   Future<void> _launchInBrowser(Uri url) async {

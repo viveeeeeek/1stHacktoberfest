@@ -18,7 +18,8 @@ class DarkTheme {
       focusColor: isDarkTheme ? Color(0xff0B2512) : Color(0xffA8DAB5),
       disabledColor: Colors.grey,
       textSelectionTheme: TextSelectionThemeData(
-        selectionColor: isDarkTheme ? Colors.white : Colors.black,
+        selectionColor: !isDarkTheme ? Colors.blueAccent : Colors.yellow,
+        //selectionColor: isDarkTheme ? Colors.white : Colors.black,
       ),
       cardColor: isDarkTheme ? Color(0xFF151515) : Colors.white,
       canvasColor: isDarkTheme ? Colors.black : Colors.grey[50],
