@@ -1,5 +1,7 @@
-import 'package:http/http.dart' as http;
 import 'package:hacktoberfest/entities/user.entities.dart';
+import 'package:flutter/services.dart' show rootBundle;
+
+import '../constants/assets.dart';
 
 class Services {
   static const String url =
@@ -7,15 +9,10 @@ class Services {
 
   static Future<List<Users>> getUsers() async {
     try {
-      final response = await http.get(Uri.parse(url));
-      if (200 == response.statusCode) {
-        final List<Users> users = usersFromJson(response.body);
-        users.sort((a, b) => a.name.compareTo(b.name));
-        return users;
-      } else {
-        print("something went wrong");
-        return List<Users>.empty();
-      }
+      String res = await rootBundle.loadString(Assets.user_data);
+      List<Users> users = usersFromJson(res);
+      users.sort((a, b) => a.name.compareTo(b.name));
+      return users;
     } catch (e) {
       print(e);
       return List<Users>.empty();

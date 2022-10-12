@@ -4,4 +4,5 @@ class Assets {
   static const img = 'assets/img.png';
   static const img1 = 'assets/img1.png';
   static const user = 'assets/user.png';
+  static const user_data = 'assets/user.data.json';
 }
