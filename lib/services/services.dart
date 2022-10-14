@@ -12,6 +12,15 @@ class Services {
         final List<Users> users = usersFromJson(response.body);
         users.sort((a, b) => a.name.compareTo(b.name));
         return users;
+      } else if (404 == response.statusCode) {
+        print("The requested resource was not found");
+        return List<Users>.empty();
+      } else if (500 == response.statusCode) {
+        print("Internal Server Error");
+        return List<Users>.empty();
+      }else if (503 == response.statusCode) {
+        print("Service Unavailable");
+        return List<Users>.empty();
       } else {
         print("something went wrong");
         return List<Users>.empty();
