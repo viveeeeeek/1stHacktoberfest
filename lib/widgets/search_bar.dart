@@ -31,12 +31,15 @@ class SearchBar extends StatelessWidget {
                 decoration: InputDecoration(
                   suffixIcon: controller.text.isEmpty
                       ? null
-                      : GestureDetector(
-                          onTap: () {
-                            controller.clear();
-                            onSearch();
-                          },
-                          child: Icon(Icons.clear),
+                      : MouseRegion(
+                          cursor: SystemMouseCursors.basic,
+                          child: GestureDetector(
+                            onTap: () {
+                              controller.clear();
+                              onSearch();
+                            },
+                            child: Icon(Icons.clear),
+                          ),
                         ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
