@@ -1,18 +1,19 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-
 import 'package:hacktoberfest/widgets/tap_effect.dart';
 
 class SearchBar extends StatelessWidget {
   final TextEditingController controller;
   final void Function() onSearch;
   final void Function(String) onChanged;
+
   const SearchBar({
     Key? key,
     required this.controller,
     required this.onSearch,
     required this.onChanged,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +29,15 @@ class SearchBar extends StatelessWidget {
               child: TextFormField(
                 controller: controller,
                 decoration: InputDecoration(
+                  suffixIcon: controller.text.isEmpty
+                      ? null
+                      : GestureDetector(
+                          onTap: () {
+                            controller.clear();
+                            onSearch();
+                          },
+                          child: Icon(Icons.clear),
+                        ),
                   border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(8),
