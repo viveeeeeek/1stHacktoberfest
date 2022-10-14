@@ -69,10 +69,6 @@ class _HomeViewState extends State<HomeView> {
                   title: SearchBar(
                     controller: controller,
                     onChanged: search,
-                    clearButtonCallBack: (() => setState(() {
-                          controller.clear();
-                          users = fetched.toList();
-                        })),
                     onSearch: () {
                       search(controller.value.text);
                     },
