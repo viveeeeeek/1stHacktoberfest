@@ -97,9 +97,8 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void search(String value) {
-    setState(() {
-      users =
-          fetched.where((e) => e.name.toLowerCase().contains(value)).toList();
-    });
+    users = fetched.where((e) => e.name.toLowerCase().contains(value)).toList();
+
+    setState(() {});
   }
 }
