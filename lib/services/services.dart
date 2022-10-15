@@ -9,7 +9,7 @@ class Services {
     try {
       final response = await http.get(Uri.parse(url));
       if (200 == response.statusCode) {
-        final List<Users> users = usersFromJson(response.body);
+        final List<Users> users = Users.usersFromJson(response.body);
         users.sort((a, b) => a.name.compareTo(b.name));
         return users;
       } else if (404 == response.statusCode) {
@@ -18,7 +18,7 @@ class Services {
       } else if (500 == response.statusCode) {
         print("Internal Server Error");
         return List<Users>.empty();
-      }else if (503 == response.statusCode) {
+      } else if (503 == response.statusCode) {
         print("Service Unavailable");
         return List<Users>.empty();
       } else {
