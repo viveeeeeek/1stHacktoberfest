@@ -1,6 +1,7 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/widgets/tap_effect.dart';
+
+import 'tap_effect.dart';
 
 class SearchBar extends StatelessWidget {
   final TextEditingController controller;

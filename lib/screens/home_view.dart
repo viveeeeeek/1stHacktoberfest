@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/entities/user.entities.dart';
-import 'package:hacktoberfest/services/services.dart';
-import 'package:hacktoberfest/widgets/dark_mode_switch.dart';
-import 'package:hacktoberfest/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/assets.dart';
 import '../controller/dark_theme_provider.dart';
+import '../entities/user.entities.dart';
+import '../services/services.dart';
+import '../widgets/dark_mode_switch.dart';
+import '../widgets/search_bar.dart';
 import 'fragment/listing_fragment.dart';
 
 class HomeView extends StatefulWidget {

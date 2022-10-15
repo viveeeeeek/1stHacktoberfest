@@ -1,9 +1,9 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/widgets/tap_effect.dart';
 import 'package:provider/provider.dart';
 
 import '../controller/dark_theme_provider.dart';
+import 'tap_effect.dart';
 
 class DarkModeSwitch extends StatelessWidget {
   @override
