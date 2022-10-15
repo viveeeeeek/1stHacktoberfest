@@ -35,47 +35,53 @@ class _HomeViewState extends State<HomeView> {
     bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
     final w = MediaQuery.of(context).size.width;
     return SafeArea(
-      child: Scaffold(
-        body: Center(
-          child: SizedBox(
-            width: isLandscape ? w * 0.5 : w,
-            child: NestedScrollView(
-              headerSliverBuilder: (c, bo) => [
-                SliverToBoxAdapter(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(20),
-                          child: Image.asset(
-                            isDark ? Assets.banner_dark : Assets.banner,
+      child: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus
+            ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
+        child: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: isLandscape ? w * 0.5 : w,
+              child: NestedScrollView(
+                headerSliverBuilder: (c, bo) => [
+                  SliverToBoxAdapter(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            // constraints: BoxConstraints.expand(),
+                            padding: const EdgeInsets.all(20),
+                            child: Image.asset(
+                              isDark ? Assets.banner_dark : Assets.banner,
+                            ),
+
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      DarkModeSwitch(),
-                      const SizedBox(width: 10),
-                    ],
+                        const SizedBox(width: 10),
+                        DarkModeSwitch(),
+                        const SizedBox(width: 10),
+                      ],
+                    ),
                   ),
-                ),
-                SliverAppBar(
-                  elevation: 0,
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  pinned: true,
-                  titleSpacing: 0,
-                  title: SearchBar(
-                    controller: controller,
-                    onChanged: search,
-                    onSearch: () {
-                      search(controller.value.text);
-                    },
+                  SliverAppBar(
+                    elevation: 0,
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    pinned: true,
+                    titleSpacing: 0,
+                    title: SearchBar(
+                      controller: controller,
+                      onChanged: search,
+                      onSearch: () {
+                        search(controller.value.text);
+                      },
+                    ),
                   ),
-                ),
-              ],
-              body: isLoading
-                  ? Center(child: CircularProgressIndicator())
-                  : ListingFragment(data: users),
+                ],
+                body: isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : ListingFragment(data: users),
+              ),
             ),
           ),
         ),
