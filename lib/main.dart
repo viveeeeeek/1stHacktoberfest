@@ -45,19 +45,7 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             title: '1stHacktoberfest',
             home: HomeView(),
-            //home: themeProvider.dTheme ? HomePage(darkMode: true) : HomePage(),
             theme: DarkTheme.theme(context, themeProvider.dTheme),
-
-            // themeProvider.dTheme?DarkTheme.theme(context):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
-            // themeProvider.dTheme?ThemeData(
-            //   textTheme: TextTheme(
-            //     bodyText1: TextStyle(),
-            //     bodyText2: TextStyle(),
-            //   ).apply(
-            //     bodyColor: Colors.white,
-            //     displayColor: Colors.white,
-            //   ),
-            // ):ThemeData(colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.orange)),
           );
         },
       ),

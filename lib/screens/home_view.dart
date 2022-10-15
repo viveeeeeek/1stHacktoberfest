@@ -4,7 +4,6 @@ import 'package:hacktoberfest/services/services.dart';
 import 'package:hacktoberfest/widgets/dark_mode_switch.dart';
 import 'package:hacktoberfest/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/assets.dart';
 import '../controller/dark_theme_provider.dart';
 import 'fragment/listing_fragment.dart';
@@ -48,7 +47,6 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       Expanded(
                         child: Container(
-                          // constraints: BoxConstraints.expand(),
                           padding: const EdgeInsets.all(20),
                           child: Image.asset(
                             isDark ? Assets.banner_dark : Assets.banner,
@@ -98,7 +96,6 @@ class _HomeViewState extends State<HomeView> {
 
   void search(String value) {
     users = fetched.where((e) => e.name.toLowerCase().contains(value)).toList();
-
     setState(() {});
   }
 }

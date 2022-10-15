@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hacktoberfest/constants/assets.dart';
 import 'package:provider/provider.dart';
-
 import 'package:hacktoberfest/controller/dark_theme_provider.dart';
 import 'package:hacktoberfest/widgets/grid_widget.dart';
 import 'package:hacktoberfest/widgets/tap_effect.dart';
-
 import '../../entities/user.entities.dart';
 import '../detailed.screens.dart';
 
@@ -19,27 +17,29 @@ class ListingFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
-    return data.isNotEmpty
-        ? SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: GridWidget(
-                itemCount: data.length,
-                builder: (BuildContext context, w, int i) {
-                  final Users user = data[i];
-                  return _Item(user: user, w: w);
-                },
-                crossCount: isLandscape ? 4 : 2,
-              ),
-            ),
-          )
-        : Center(
-            child: Image.asset(
-              Assets.noSearchFound,
-              height: 200,
-            ),
-          );
+
+    if (data.isNotEmpty)
+      return SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: GridWidget(
+            itemCount: data.length,
+            builder: (BuildContext context, w, int i) {
+              final Users user = data[i];
+              return _Item(user: user, w: w);
+            },
+            crossCount: isLandscape ? 4 : 2,
+          ),
+        ),
+      );
+    else
+      return Center(
+        child: Image.asset(
+          Assets.noSearchFound,
+          height: 200,
+        ),
+      );
   }
 }
 
@@ -76,14 +76,6 @@ class _Item extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isDark ? Colors.white : Colors.black,
                 borderRadius: BorderRadius.circular(16),
-                /* image: DecorationImage(
-                  image: NetworkImage(
-                    'https://github.com/${user.name}.png',
-                  ),
-                  onError: (exception, stackTrace) =>
-                      Image.asset(Assets.noSearchFound),
-                  fit: BoxFit.cover,
-                ),*/
               ),
               child: Image.network(
                 'https://github.com/${user.name}.png',

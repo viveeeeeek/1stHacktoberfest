@@ -26,7 +26,6 @@ class DetailScreen extends StatelessWidget {
                     LinearGradient(colors: [Colors.orange, Colors.yellow])),
           ),
         ),
-        // backgroundColor: Colors.white,
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Colors.orange, Colors.yellow])),
