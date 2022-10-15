@@ -195,5 +195,9 @@
   {
     "name": "SushanShakya",
     "description": "I build Flutter Apps"
+  },
+  {
+    "name": "Safwan Mamji",
+    "description": "This is my first PR for HacktoberFest although I have been working on Flutter projects for almost 2.5 years"
   }
 ]

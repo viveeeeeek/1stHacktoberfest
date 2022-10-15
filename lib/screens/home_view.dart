@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hacktoberfest/entities/user.entities.dart';
 import 'package:hacktoberfest/services/services.dart';
@@ -40,47 +41,56 @@ class _HomeViewState extends State<HomeView> {
         onTap: () => FocusManager.instance.primaryFocus
             ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
         child: Scaffold(
-          body: Center(
-            child: SizedBox(
-              width: isLandscape ? w * 0.5 : w,
-              child: NestedScrollView(
-                headerSliverBuilder: (c, bo) => [
-                  SliverToBoxAdapter(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            // constraints: BoxConstraints.expand(),
-                            padding: const EdgeInsets.all(20),
-                            child: Image.asset(
-                              isDark ? Assets.banner_dark : Assets.banner,
+          body: Scrollbar(
+            thumbVisibility: kIsWeb ? true : false,
+            child: Center(
+              child: SizedBox(
+                width: isLandscape ? w * 0.5 : w,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: NestedScrollView(
+                    headerSliverBuilder: (c, bo) => [
+                      SliverToBoxAdapter(
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                // constraints: BoxConstraints.expand(),
+                                padding: const EdgeInsets.all(20),
+                                child: Image.asset(
+                                  isDark ? Assets.banner_dark : Assets.banner,
+                                ),
+                              ),
                             ),
-                          ),
+                            const SizedBox(width: 10),
+                            DarkModeSwitch(),
+                            const SizedBox(width: 10),
+                          ],
                         ),
-                        const SizedBox(width: 10),
-                        DarkModeSwitch(),
-                        const SizedBox(width: 10),
-                      ],
-                    ),
+                      ),
+                      SliverAppBar(
+                        elevation: 0,
+                        backgroundColor:
+                            Theme.of(context).scaffoldBackgroundColor,
+                        pinned: true,
+                        titleSpacing: 0,
+                        title: SearchBar(
+                          controller: controller,
+                          onChanged: search,
+                          onSearch: () {
+                            search(controller.value.text);
+                          },
+                        ),
+                      ),
+                    ],
+                    body: isLoading
+                        ? Center(child: CircularProgressIndicator())
+                        : Scrollbar(
+                            thumbVisibility: kIsWeb ? true : false,
+                            child: ListingFragment(data: users)),
                   ),
-                  SliverAppBar(
-                    elevation: 0,
-                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    pinned: true,
-                    titleSpacing: 0,
-                    title: SearchBar(
-                      controller: controller,
-                      onChanged: search,
-                      onSearch: () {
-                        search(controller.value.text);
-                      },
-                    ),
-                  ),
-                ],
-                body: isLoading
-                    ? Center(child: CircularProgressIndicator())
-                    : ListingFragment(data: users),
+                ),
               ),
             ),
           ),
