@@ -87,8 +87,8 @@ class _Item extends StatelessWidget {
               child: Image.network(
                 'https://github.com/${user.name}.png',
                 fit: BoxFit.cover,
-                errorBuilder: ((context, error, stackTrace) =>
-                    Image.asset(Assets.user)),
+                errorBuilder: (context, error, stackTrace) =>
+                    Image.asset(Assets.user),
               ),
             ),
             SizedBox(height: 10),
