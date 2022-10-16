@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
-import 'package:hacktoberfest/entities/user.entities.dart';
+
+import '../entities/user.entities.dart';
 
 class Services {
   static const String url =

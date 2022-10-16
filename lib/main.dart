@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/controller/dark_theme_provider.dart';
-import 'package:hacktoberfest/screens/home_view.dart';
-
-import 'package:hacktoberfest/themes/dark_theme.dart';
 import 'package:provider/provider.dart';
+
+import 'controller/dark_theme_provider.dart';
+import 'screens/home_view.dart';
+import 'themes/dark_theme.dart';
 
 void main() {
   runApp(MyApp());

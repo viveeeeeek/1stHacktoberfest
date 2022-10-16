@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/controller/dark_theme_provider.dart';
-import 'package:hacktoberfest/entities/user.entities.dart';
-import 'package:hacktoberfest/screens/detailed.screens.dart';
-import 'package:hacktoberfest/services/services.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../controller/dark_theme_provider.dart';
+import '../entities/user.entities.dart';
+import '../services/services.dart';
+import 'detailed.screens.dart';
 
 class HomePage extends StatefulWidget {
   final darkMode;
