@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hacktoberfest/constants/assets.dart';
 import 'package:provider/provider.dart';
 
-import 'package:hacktoberfest/controller/dark_theme_provider.dart';
-import 'package:hacktoberfest/widgets/grid_widget.dart';
-import 'package:hacktoberfest/widgets/tap_effect.dart';
-
+import '../../constants/assets.dart';
+import '../../controller/dark_theme_provider.dart';
 import '../../entities/user.entities.dart';
+import '../../widgets/grid_widget.dart';
+import '../../widgets/tap_effect.dart';
 import '../detailed.screens.dart';
 
 class ListingFragment extends StatelessWidget {
@@ -88,8 +87,8 @@ class _Item extends StatelessWidget {
               child: Image.network(
                 'https://github.com/${user.name}.png',
                 fit: BoxFit.cover,
-                errorBuilder: ((context, error, stackTrace) =>
-                    Image.asset(Assets.user)),
+                errorBuilder: (context, error, stackTrace) =>
+                    Image.asset(Assets.user),
               ),
             ),
             SizedBox(height: 10),

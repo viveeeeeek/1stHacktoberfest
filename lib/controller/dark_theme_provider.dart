@@ -1,24 +1,23 @@
 import 'package:flutter/cupertino.dart';
-import 'package:hacktoberfest/controller/dark_theme_preference.dart';
 
-class DarkThemeProvider with ChangeNotifier{
+import 'dark_theme_preference.dart';
 
+class DarkThemeProvider with ChangeNotifier {
   DarkThemePreference darkThemePreference = DarkThemePreference();
   bool _dTheme = false;
   var _bgImg = "assets/img.png", banner = "assets/banner.png";
   bool get dTheme => _dTheme;
   String get bgImg => _bgImg;
-  set dTheme(bool val){
+  set dTheme(bool val) {
     _dTheme = val;
     darkThemePreference.setDarkTheme(val);
-    if(val){
+    if (val) {
       _bgImg = "assets/img1.png";
       banner = "assets/banner_dark.png";
-    }else{
+    } else {
       _bgImg = "assets/img.png";
       banner = "assets/banner.png";
     }
     notifyListeners();
-
   }
 }
