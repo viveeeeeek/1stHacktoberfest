@@ -53,12 +53,13 @@ class _HomeViewState extends State<HomeView> {
     bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
     final w = MediaQuery.of(context).size.width;
 
-    return SafeArea(
-      child: GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus
-            ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
-        child: Scaffold(
-          body: Center(
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus
+          ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
+      child: Scaffold(
+        body: SafeArea(
+          bottom: false,
+          child: Center(
             child: SizedBox(
               width: isLandscape ? w * 0.5 : w,
               child: NestedScrollView(

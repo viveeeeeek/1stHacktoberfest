@@ -1,25 +1,44 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hacktoberfest/controller/dark_theme_provider.dart';
+import 'package:hacktoberfest/utils/functions.dart';
+import 'package:hacktoberfest/widgets/image_widget.dart';
+import 'package:hacktoberfest/utils/extension.dart';
+import 'package:provider/provider.dart';
 
 class DetailScreen extends StatelessWidget {
-  final name;
-  final description;
+  final String? name;
+  final String? description;
+  final int index;
 
-  const DetailScreen({
-    Key? key,
-    this.name,
-    this.description,
-  }) : super(key: key);
+  const DetailScreen(
+      {Key? key, required this.name, required this.description, this.index = 0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final displaySize = MediaQuery.of(context).size;
+    final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: _buildAppbar(context),
-        // backgroundColor: Colors.white,
-        body: _buildBody(displaySize, context),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: isDark ? Colors.grey : Colors.black,
+        onPressed: () {
+          try {
+            Functions.openLinkInBrowser(
+                "https://github.com/${name?.toGithubUsername()}");
+          } catch (e) {
+            var snackBar = SnackBar(
+              content: Text(e.toString()),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          }
+        },
+        child: Icon(CupertinoIcons.profile_circled),
       ),
+      appBar: _buildAppbar(context),
+      // backgroundColor: Colors.white,
+      body: _buildBody(displaySize, context),
     );
   }
 
@@ -43,28 +62,45 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
-  Container _buildBody(Size displaySize, BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.orange, Colors.yellow],
+  Widget _buildBody(Size displaySize, BuildContext context) {
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.orange, Colors.yellow],
+          ),
         ),
-      ),
-      child: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text(
-                name,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 33,
-                ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  Hero(
+                    tag: "user_image_$index",
+                    child: ImageWidget(
+                      name == null
+                          ? ""
+                          : 'https://github.com/${name!.toGithubUsername()}.png',
+                      height: 160,
+                      width: 160,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
+                    child: Text(
+                      name.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 33,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-          _buildCommentPanel(displaySize, context)
-        ],
+            _buildCommentPanel(displaySize, context)
+          ],
+        ),
       ),
     );
   }
@@ -137,7 +173,7 @@ class DetailScreen extends StatelessWidget {
                 height: 25,
               ),
               Text(
-                description,
+                description.toString(),
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
