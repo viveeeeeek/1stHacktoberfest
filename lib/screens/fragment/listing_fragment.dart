@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hacktoberfest/utils/extension.dart';
+import 'package:hacktoberfest/widgets/image_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/assets.dart';
@@ -27,7 +29,7 @@ class ListingFragment extends StatelessWidget {
                 itemCount: data.length,
                 builder: (BuildContext context, w, int i) {
                   final Users user = data[i];
-                  return _Item(user: user, w: w);
+                  return _Item(user: user, w: w, index: i);
                 },
                 crossCount: isLandscape ? 4 : 2,
               ),
@@ -45,10 +47,12 @@ class ListingFragment extends StatelessWidget {
 class _Item extends StatelessWidget {
   final Users user;
   final double w;
+  final int index;
   const _Item({
     Key? key,
     required this.user,
     required this.w,
+    required this.index,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,7 @@ class _Item extends StatelessWidget {
             builder: (context) => DetailScreen(
               name: user.name,
               description: user.description,
+              index: index,
             ),
           ),
         );
@@ -69,26 +74,12 @@ class _Item extends StatelessWidget {
         width: w,
         child: Column(
           children: [
-            Container(
-              height: w * 0.8,
-              width: w * 0.8,
-              decoration: BoxDecoration(
-                color: isDark ? Colors.white : Colors.black,
-                borderRadius: BorderRadius.circular(16),
-                /* image: DecorationImage(
-                  image: NetworkImage(
-                    'https://github.com/${user.name}.png',
-                  ),
-                  onError: (exception, stackTrace) =>
-                      Image.asset(Assets.noSearchFound),
-                  fit: BoxFit.cover,
-                ),*/
-              ),
-              child: Image.network(
-                'https://github.com/${user.name}.png',
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) =>
-                    Image.asset(Assets.user),
+            Hero(
+              tag: "user_image_$index",
+              child: ImageWidget(
+                'https://github.com/${user.name.toGithubUsername()}.png',
+                height: w * 0.8,
+                width: w * 0.8,
               ),
             ),
             SizedBox(height: 10),
