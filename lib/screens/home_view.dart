@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hacktoberfest/utils/responsive_size.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/assets.dart';
@@ -20,7 +22,8 @@ class _HomeViewState extends State<HomeView> {
   late List<Users> fetched;
   late List<Users> users;
   late TextEditingController controller;
-
+  late ScrollController _sliverScrollController = ScrollController();
+  bool isPinned = false;
   @override
   void initState() {
     super.initState();
@@ -28,6 +31,25 @@ class _HomeViewState extends State<HomeView> {
     users = [];
     controller = TextEditingController();
     fetchUsers();
+    silverListener();
+  }
+
+  void silverListener() {
+    _sliverScrollController.addListener(() {
+      if (!isPinned &&
+          _sliverScrollController.hasClients &&
+          _sliverScrollController.offset > kToolbarHeight + 150) {
+        setState(() {
+          isPinned = true;
+        });
+      } else if (isPinned &&
+          _sliverScrollController.hasClients &&
+          _sliverScrollController.offset < kToolbarHeight + 150) {
+        setState(() {
+          isPinned = false;
+        });
+      }
+    });
   }
 
   void fetchUsers() {
@@ -53,8 +75,6 @@ class _HomeViewState extends State<HomeView> {
         MediaQuery.of(context).orientation == Orientation.landscape;
     final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
     final String bgImage = Provider.of<DarkThemeProvider>(context).bgImg;
-    final w = MediaQuery.of(context).size.width;
-    final h = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus
@@ -63,12 +83,13 @@ class _HomeViewState extends State<HomeView> {
         value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
         child: Scaffold(
           body: SafeArea(
+            top: false,
             bottom: false,
             child: Stack(
               children: [
                 Container(
-                  width: w,
-                  height: h,
+                  width: ResponsiveSize.sizeWidth(context),
+                  height: ResponsiveSize.sizeHeight(context),
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(bgImage),
@@ -76,17 +97,25 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                 ),
-                Center(
-                  child: SizedBox(
-                    width: isLandscape ? w * 0.5 : w,
-                    child: NestedScrollView(
-                      headerSliverBuilder: (c, bo) => [
-                        _buildLogoHeader(isDark),
-                        _buildSearchBar(context),
-                      ],
-                      body: isLoading
-                          ? Center(child: CircularProgressIndicator())
-                          : ListingFragment(data: users),
+                Scrollbar(
+                  thumbVisibility: kIsWeb ? true : false,
+                  controller: _sliverScrollController,
+                  child: Center(
+                    child: SizedBox(
+                      // width: w,
+                      width: isLandscape
+                          ? ResponsiveSize.sizeWidth(context) * 0.9
+                          : ResponsiveSize.sizeWidth(context),
+                      child: NestedScrollView(
+                        controller: _sliverScrollController,
+                        headerSliverBuilder: (c, bo) => [
+                          _buildLogoHeader(isDark),
+                          _buildSearchBar(context),
+                        ],
+                        body: isLoading
+                            ? Center(child: CircularProgressIndicator())
+                            : ListingFragment(data: users),
+                      ),
                     ),
                   ),
                 ),
@@ -99,33 +128,48 @@ class _HomeViewState extends State<HomeView> {
   }
 
   SliverToBoxAdapter _buildLogoHeader(bool isDark) {
+    final bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return SliverToBoxAdapter(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Container(
-              // constraints: BoxConstraints.expand(),
-              padding: const EdgeInsets.all(20),
-              child: Image.asset(
-                isDark ? Assets.banner_dark : Assets.banner,
+      child: Padding(
+        // width: isLandscape ? w * 0.5 : w,
+        padding: EdgeInsets.only(top: isLandscape ? 0 : 50),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                // constraints: BoxConstraints.expand(),
+                padding: const EdgeInsets.all(20),
+                child: Image.asset(
+                  isDark ? Assets.banner_dark : Assets.banner,
+                  // height: 200,
+                ),
               ),
             ),
-          ),
-          const SizedBox(width: 10),
-          DarkModeSwitch(),
-          const SizedBox(width: 10),
-        ],
+            const SizedBox(width: 10),
+            DarkModeSwitch(),
+            const SizedBox(width: 10),
+          ],
+        ),
       ),
     );
   }
 
   SliverAppBar _buildSearchBar(BuildContext context) {
+    final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
+    final bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return SliverAppBar(
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: !isLandscape && isPinned
+          ? isDark
+              ? Colors.black
+              : Color.fromARGB(255, 219, 243, 220)
+          : Colors.transparent,
       pinned: true,
       titleSpacing: 0,
+      toolbarHeight: 70,
       title: SearchBar(
         controller: controller,
         onChanged: search,
