@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DarkTheme {
@@ -28,6 +29,9 @@ class DarkTheme {
           colorScheme: isDarkTheme ? ColorScheme.dark() : ColorScheme.light()),
       appBarTheme: AppBarTheme(
         elevation: 0.0,
+        systemOverlayStyle: isDarkTheme
+            ? SystemUiOverlayStyle.light
+            : SystemUiOverlayStyle.dark,
       ),
     );
   }

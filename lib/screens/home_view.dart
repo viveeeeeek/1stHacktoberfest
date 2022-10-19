@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/assets.dart';
@@ -48,29 +49,48 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    bool isLandscape =
+    final bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
-    bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
+    final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
+    final String bgImage = Provider.of<DarkThemeProvider>(context).bgImg;
     final w = MediaQuery.of(context).size.width;
+    final h = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus
           ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
-      child: Scaffold(
-        body: SafeArea(
-          bottom: false,
-          child: Center(
-            child: SizedBox(
-              width: isLandscape ? w * 0.5 : w,
-              child: NestedScrollView(
-                headerSliverBuilder: (c, bo) => [
-                  _buildLogoHeader(isDark),
-                  _buildSearchBar(context),
-                ],
-                body: isLoading
-                    ? Center(child: CircularProgressIndicator())
-                    : ListingFragment(data: users),
-              ),
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+        child: Scaffold(
+          body: SafeArea(
+            bottom: false,
+            child: Stack(
+              children: [
+                Container(
+                  width: w,
+                  height: h,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(bgImage),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: SizedBox(
+                    width: isLandscape ? w * 0.5 : w,
+                    child: NestedScrollView(
+                      headerSliverBuilder: (c, bo) => [
+                        _buildLogoHeader(isDark),
+                        _buildSearchBar(context),
+                      ],
+                      body: isLoading
+                          ? Center(child: CircularProgressIndicator())
+                          : ListingFragment(data: users),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -103,7 +123,7 @@ class _HomeViewState extends State<HomeView> {
   SliverAppBar _buildSearchBar(BuildContext context) {
     return SliverAppBar(
       elevation: 0,
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Colors.transparent,
       pinned: true,
       titleSpacing: 0,
       title: SearchBar(
