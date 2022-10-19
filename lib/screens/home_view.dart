@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/assets.dart';
@@ -58,36 +59,39 @@ class _HomeViewState extends State<HomeView> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus
           ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
-      child: Scaffold(
-        body: SafeArea(
-          bottom: false,
-          child: Stack(
-            children: [
-              Container(
-                width: w,
-                height: h,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(bgImage),
-                    fit: BoxFit.fill,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+        child: Scaffold(
+          body: SafeArea(
+            bottom: false,
+            child: Stack(
+              children: [
+                Container(
+                  width: w,
+                  height: h,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(bgImage),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-              Center(
-                child: SizedBox(
-                  width: isLandscape ? w * 0.5 : w,
-                  child: NestedScrollView(
-                    headerSliverBuilder: (c, bo) => [
-                      _buildLogoHeader(isDark),
-                      _buildSearchBar(context),
-                    ],
-                    body: isLoading
-                        ? Center(child: CircularProgressIndicator())
-                        : ListingFragment(data: users),
+                Center(
+                  child: SizedBox(
+                    width: isLandscape ? w * 0.5 : w,
+                    child: NestedScrollView(
+                      headerSliverBuilder: (c, bo) => [
+                        _buildLogoHeader(isDark),
+                        _buildSearchBar(context),
+                      ],
+                      body: isLoading
+                          ? Center(child: CircularProgressIndicator())
+                          : ListingFragment(data: users),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
