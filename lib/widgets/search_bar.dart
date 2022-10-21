@@ -36,6 +36,14 @@ class SearchBar extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 2,
+            offset: Offset(1, 2), // changes position of shadow
+          ),
+        ],
       ),
       child: TextFormField(
         controller: controller,
