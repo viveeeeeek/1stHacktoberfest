@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hacktoberfest/utils/extension.dart';
+import 'package:hacktoberfest/utils/responsive_size.dart';
 import 'package:hacktoberfest/widgets/image_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +19,6 @@ class ListingFragment extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    bool isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
     return data.isNotEmpty
         ? SingleChildScrollView(
             physics: BouncingScrollPhysics(),
@@ -31,7 +30,11 @@ class ListingFragment extends StatelessWidget {
                   final Users user = data[i];
                   return _Item(user: user, w: w, index: i);
                 },
-                crossCount: isLandscape ? 4 : 2,
+                crossCount: ResponsiveSize.isDesktop(context)
+                    ? 6
+                    : ResponsiveSize.isTablet(context)
+                        ? 4
+                        : 2,
               ),
             ),
           )
