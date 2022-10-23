@@ -16,6 +16,35 @@ Before you start making contribution make these things clear
 2) Make sure you add some value to the repository.
 3) Spam PR's wont get merged
 
+**Contributing Guidelines📝**
+Are we missing any of your favorite features, which you think you can add to it? For major changes, please open an issue first to discuss what you would like to change. You are welcome to contribute to this project.
+To start contributing, follow the below guidelines:
+1. Fork this repository.
+2. Clone your forked copy of the project.
+git clone https://github.com/<your_user_name>/1stHacktoberfest.git
+3. Navigate to the project directory 📁
+cd 1stHacktoberfest
+4. Add a reference(remote) to the original repository.
+git remote add upstream [(https://github.com/viveeeeeek/1stHacktoberfest.git)]
+5. Check the remotes for this repository.
+git remote -v
+6. Always take a pull from the upstream repository to your master branch to keep it at par with the main project(updated repository).
+git pull upstream main
+7. Create a new branch.
+git checkout -b <your_branch_name>
+8. Perform your desired changes to the code base.
+9. Track your changes ✔️.
+git add .
+10. Commit your changes.
+git commit -m "Relevant message"
+11. Push the committed changes in your feature branch to your remote repo.
+git push -u origin <your_branch_name>
+12. To create a pull request, click on compare and pull requests.
+13. Add an appropriate title and description to your pull request explaining your changes and efforts.
+14. Click on Create Pull Request.
+15. Woohoo!🥳 You have made a PR to the **1stHacktoberfest**. Wait for your submission to be accepted and your PR to be merged.
+You made it! 🎊
+
 ### NOTE
 
 - Make Sure you commit your changes in a new branch.
