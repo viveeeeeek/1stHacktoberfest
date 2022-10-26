@@ -41,7 +41,7 @@ class SearchBar extends StatelessWidget {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 2,
-            offset: Offset(1, 2), // changes position of shadow
+            offset: const Offset(1, 2), // changes position of shadow
           ),
         ],
       ),
@@ -57,7 +57,7 @@ class SearchBar extends StatelessWidget {
                       controller.clear();
                       onSearch();
                     },
-                    child: Icon(Icons.clear),
+                    child: const Icon(Icons.clear),
                   ),
                 ),
           border: OutlineInputBorder(
@@ -71,7 +71,7 @@ class SearchBar extends StatelessWidget {
           isDense: true,
           fillColor: Colors.white,
           hintText: 'Search Here',
-          hintStyle: TextStyle(color: Colors.black),
+          hintStyle: const TextStyle(color: Colors.black),
         ),
         textInputAction: TextInputAction.search,
         onEditingComplete: onSearch,
@@ -87,14 +87,14 @@ class SearchBar extends StatelessWidget {
         height: 40,
         width: 40,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [Color.fromRGBO(153, 69, 255, 1), Color(0xFFff8ae0)],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Icon(FeatherIcons.search, color: Colors.white),
+        child: const Icon(FeatherIcons.search, color: Colors.white),
       ),
     );
   }

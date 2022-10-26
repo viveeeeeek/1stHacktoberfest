@@ -6,6 +6,8 @@ import '../controller/dark_theme_provider.dart';
 import 'tap_effect.dart';
 
 class DarkModeSwitch extends StatelessWidget {
+  const DarkModeSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;

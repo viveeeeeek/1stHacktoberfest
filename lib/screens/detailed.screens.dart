@@ -34,7 +34,7 @@ class DetailScreen extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
         },
-        child: Icon(CupertinoIcons.profile_circled),
+        child: const Icon(CupertinoIcons.profile_circled),
       ),
       appBar: _buildAppbar(context),
       // backgroundColor: Colors.white,
@@ -45,7 +45,7 @@ class DetailScreen extends StatelessWidget {
   AppBar _buildAppbar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.arrow_back_ios_rounded,
           size: 25,
           color: Colors.black,
@@ -53,7 +53,7 @@ class DetailScreen extends StatelessWidget {
         onPressed: Navigator.of(context).pop,
       ),
       flexibleSpace: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.orange, Colors.yellow],
           ),
@@ -65,7 +65,7 @@ class DetailScreen extends StatelessWidget {
   Widget _buildBody(Size displaySize, BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.orange, Colors.yellow],
           ),
@@ -90,7 +90,7 @@ class DetailScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 30),
                     child: Text(
                       name.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 33,
                       ),
@@ -114,23 +114,23 @@ class DetailScreen extends StatelessWidget {
             768 < displaySize.width ? displaySize.width / 1 : displaySize.width,
         decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15),
             topRight: Radius.circular(15),
           ),
         ),
         child: Padding(
           padding: displaySize.width > 1000
-              ? EdgeInsets.fromLTRB(200, 0, 200, 0)
+              ? const EdgeInsets.fromLTRB(200, 0, 200, 0)
               : displaySize.width > 768
-                  ? EdgeInsets.fromLTRB(50, 0, 50, 0)
+                  ? const EdgeInsets.fromLTRB(50, 0, 50, 0)
                   : displaySize.width > 480
-                      ? EdgeInsets.fromLTRB(25, 0, 25, 0)
-                      : EdgeInsets.fromLTRB(5, 0, 5, 0),
+                      ? const EdgeInsets.fromLTRB(25, 0, 25, 0)
+                      : const EdgeInsets.fromLTRB(5, 0, 5, 0),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Container(
@@ -141,9 +141,10 @@ class DetailScreen extends StatelessWidget {
                               Colors.black
                           ? Colors.white60
                           : Colors.grey.withOpacity(0.3),
-                      borderRadius: BorderRadius.all(Radius.circular(25))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(25))),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Padding(
@@ -164,15 +165,15 @@ class DetailScreen extends StatelessWidget {
           color: Theme.of(context).scaffoldBackgroundColor == Colors.black
               ? Colors.white60
               : Colors.grey.withOpacity(0.3),
-          borderRadius: BorderRadius.all(Radius.circular(15))),
+          borderRadius: const BorderRadius.all(Radius.circular(15))),
       child: Padding(
         padding: displaySize.width > 768
-            ? EdgeInsets.fromLTRB(50, 0, 50, 0)
-            : EdgeInsets.fromLTRB(15, 0, 15, 0),
+            ? const EdgeInsets.fromLTRB(50, 0, 50, 0)
+            : const EdgeInsets.fromLTRB(15, 0, 15, 0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               Text(
@@ -182,7 +183,7 @@ class DetailScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black.withAlpha(215)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
             ],
