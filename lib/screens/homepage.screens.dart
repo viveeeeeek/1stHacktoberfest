@@ -8,9 +8,9 @@ import '../services/services.dart';
 import 'detailed.screens.dart';
 
 class HomePage extends StatefulWidget {
-  final darkMode;
+  final bool darkMode;
 
-  HomePage({this.darkMode = false});
+  const HomePage({Key? key, this.darkMode = false}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -83,15 +83,14 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: Container(
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: Colors.black12),
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle, color: Colors.black12),
             child: IconButton(
                 icon: Icon(
                   Icons.lightbulb,
                   color: widget.darkMode ? Colors.white : Colors.yellow,
                 ),
                 onPressed: () {
-                  print(themeChange.dTheme);
                   themeChange.dTheme = !themeChange.dTheme;
                 }),
           ),
@@ -103,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                 expandedHeight: 150,
                 backgroundColor: widget.darkMode
                     ? Colors.black
-                    : Color.fromARGB(255, 211, 237, 239),
+                    : const Color.fromARGB(255, 211, 237, 239),
                 flexibleSpace: FlexibleSpaceBar(
                   // title: Text('SilverAppBar'),
                   background: Image.asset(
@@ -119,13 +118,13 @@ class _HomePageState extends State<HomePage> {
             ];
           },
           body: Container(
-            constraints: BoxConstraints.expand(),
+            constraints: const BoxConstraints.expand(),
             decoration: BoxDecoration(
                 // color: Colors.black,
                 image: DecorationImage(
                     image: widget.darkMode
-                        ? AssetImage("assets/img1.png")
-                        : AssetImage("assets/img.png"),
+                        ? const AssetImage("assets/img1.png")
+                        : const AssetImage("assets/img.png"),
                     fit: BoxFit.cover) //110E0C
                 ),
             child: Padding(
@@ -149,33 +148,26 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 25,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
-                  Container(
-                    child: TextFormField(
-                      style: TextStyle(
-                        color: widget.darkMode ? Colors.white : Colors.black,
-                      ),
-                      cursorColor:
-                          widget.darkMode ? Colors.white : Colors.black,
-                      decoration: InputDecoration(
-                        hintText: "Search Contributers",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintStyle: TextStyle(
-                            color:
-                                widget.darkMode ? Colors.white : Colors.black),
-                        fillColor:
-                            widget.darkMode ? Colors.white : Colors.black,
-                        focusColor:
-                            widget.darkMode ? Colors.white : Colors.black,
-                        hoverColor:
-                            widget.darkMode ? Colors.white : Colors.black,
-                      ),
-                      onChanged: (value) => searchUser(value),
+                  TextFormField(
+                    style: TextStyle(
+                      color: widget.darkMode ? Colors.white : Colors.black,
                     ),
+                    cursorColor: widget.darkMode ? Colors.white : Colors.black,
+                    decoration: InputDecoration(
+                      hintText: "Search Contributers",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      hintStyle: TextStyle(
+                          color: widget.darkMode ? Colors.white : Colors.black),
+                      fillColor: widget.darkMode ? Colors.white : Colors.black,
+                      focusColor: widget.darkMode ? Colors.white : Colors.black,
+                      hoverColor: widget.darkMode ? Colors.white : Colors.black,
+                    ),
+                    onChanged: (value) => searchUser(value),
                   ),
                   !_loading
                       ? Expanded(
@@ -222,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                                                       color: const Color(
                                                           0xFF00C598)),
                                                   borderRadius:
-                                                      BorderRadius.all(
+                                                      const BorderRadius.all(
                                                           Radius.circular(
                                                               30.0))),
                                               child: Column(
@@ -231,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     height: 25,
                                                   ),
                                                   Center(
@@ -243,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                                                       width: 25,
                                                     ),
                                                   ),
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     width: 20,
                                                   ),
                                                   Expanded(
@@ -254,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                                                                 .all(8.0),
                                                         child: Text(
                                                           users.name,
-                                                          style: TextStyle(
+                                                          style: const TextStyle(
                                                               fontSize: 18,
                                                               fontWeight:
                                                                   FontWeight
@@ -266,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                                                 ],
                                               ),
                                             )
-                                          : Container(
+                                          : SizedBox(
                                               height: 50,
                                               width: 50,
                                               child: Container(
@@ -276,10 +268,11 @@ class _HomePageState extends State<HomePage> {
                                                               .withOpacity(0.5),
                                                       border: Border.all(
                                                           width: 3,
-                                                          color: Color(
+                                                          color: const Color(
                                                               0xFF00C598)),
                                                       borderRadius:
-                                                          BorderRadius.all(
+                                                          const BorderRadius
+                                                                  .all(
                                                               Radius.circular(
                                                                   50.0))),
                                                   child: Row(
@@ -303,7 +296,7 @@ class _HomePageState extends State<HomePage> {
                                                       ),
                                                       Text(
                                                         users.name,
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             fontSize: 18,
                                                             fontWeight:
                                                                 FontWeight
@@ -320,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                                     ));
                               }),
                         )
-                      : CircularProgressIndicator(),
+                      : const CircularProgressIndicator(),
                 ],
               ),
             ),
@@ -332,11 +325,11 @@ class _HomePageState extends State<HomePage> {
           onPressed: () => setState(() {
             _launched = _launchInBrowser(toLaunch);
           }),
-          child: Padding(
-            padding: const EdgeInsets.all(3.0),
+          child: const Padding(
+            padding: EdgeInsets.all(3.0),
             child: FittedBox(child: Text('Github')),
           ),
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(15),
             ),
@@ -350,12 +343,13 @@ class _HomePageState extends State<HomePage> {
 }
 
 Color colorProvidor(int index) {
-  if (index % 4 == 0)
-    return Color(0xFFB6EDDC);
-  else if (index % 4 == 1)
-    return Color(0xFFA3C26D);
-  else if (index % 4 == 2)
-    return Color(0xFFCA7C00);
-  else
-    return Color(0xFFDE430E);
+  if (index % 4 == 0) {
+    return const Color(0xFFB6EDDC);
+  } else if (index % 4 == 1) {
+    return const Color(0xFFA3C26D);
+  } else if (index % 4 == 2) {
+    return const Color(0xFFCA7C00);
+  } else {
+    return const Color(0xFFDE430E);
+  }
 }

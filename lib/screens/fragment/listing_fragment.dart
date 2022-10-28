@@ -21,7 +21,7 @@ class ListingFragment extends StatelessWidget {
   Widget build(BuildContext context) {
     return data.isNotEmpty
         ? SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: GridWidget(
@@ -85,7 +85,7 @@ class _Item extends StatelessWidget {
                 width: w * 0.8,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               user.name,
               maxLines: 2,

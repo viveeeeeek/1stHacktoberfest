@@ -20,4 +20,9 @@ class DarkThemeProvider with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  void getTheme() async {
+    bool theme = await darkThemePreference.getTheme();
+    dTheme = theme;
+  }
 }

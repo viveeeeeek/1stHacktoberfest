@@ -13,6 +13,8 @@ import '../widgets/search_bar.dart';
 import 'fragment/listing_fragment.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -22,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
   late List<Users> fetched;
   late List<Users> users;
   late TextEditingController controller;
-  late ScrollController _sliverScrollController = ScrollController();
+  late final ScrollController _sliverScrollController = ScrollController();
   bool isPinned = false;
   @override
   void initState() {
@@ -113,7 +115,7 @@ class _HomeViewState extends State<HomeView> {
                           _buildSearchBar(context),
                         ],
                         body: isLoading
-                            ? Center(child: CircularProgressIndicator())
+                            ? const Center(child: CircularProgressIndicator())
                             : ListingFragment(data: users),
                       ),
                     ),
@@ -142,13 +144,13 @@ class _HomeViewState extends State<HomeView> {
                 // constraints: BoxConstraints.expand(),
                 padding: const EdgeInsets.all(20),
                 child: Image.asset(
-                  isDark ? Assets.banner_dark : Assets.banner,
+                  isDark ? Assets.bannerDark : Assets.banner,
                   // height: 200,
                 ),
               ),
             ),
             const SizedBox(width: 10),
-            DarkModeSwitch(),
+            const DarkModeSwitch(),
             const SizedBox(width: 10),
           ],
         ),
@@ -165,7 +167,7 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: !isLandscape && isPinned
           ? isDark
               ? Colors.black
-              : Color.fromARGB(255, 219, 243, 220)
+              : const Color.fromARGB(255, 219, 243, 220)
           : Colors.transparent,
       pinned: true,
       titleSpacing: 0,
