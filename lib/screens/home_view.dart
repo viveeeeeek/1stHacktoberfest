@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hacktoberfest/utils/responsive_size.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/assets.dart';
 import '../controller/dark_theme_provider.dart';
 import '../entities/user.entities.dart';
@@ -172,11 +171,11 @@ class _HomeViewState extends State<HomeView> {
       pinned: true,
       titleSpacing: 0,
       toolbarHeight: 70,
-      title: SearchBar(
+      title: CustomSearchBar(
         controller: controller,
         onChanged: search,
         onSearch: () {
-          search(controller.value.text);
+          search(controller.value.text.toLowerCase());
         },
       ),
     );
