@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'tap_effect.dart';
 
-class SearchBar extends StatelessWidget {
+class CustomSearchBar extends StatelessWidget {
   final TextEditingController controller;
   final void Function() onSearch;
   final void Function(String) onChanged;
 
-  const SearchBar({
+  const CustomSearchBar({
     Key? key,
     required this.controller,
     required this.onSearch,
