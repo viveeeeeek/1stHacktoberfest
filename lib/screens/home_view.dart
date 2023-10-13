@@ -19,55 +19,36 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  late bool isLoading;
-  late List<Users> fetched;
-  late List<Users> users;
-  late TextEditingController controller;
-  late final ScrollController _sliverScrollController = ScrollController();
-  bool isPinned = false;
+  bool isLoading = false;
+  List<Users> fetched = [];
+  List<Users> users = [];
+  TextEditingController controller = TextEditingController();
+  final ScrollController _sliverScrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
-    isLoading = false;
-    users = [];
-    controller = TextEditingController();
     fetchUsers();
-    silverListener();
-  }
-
-  void silverListener() {
-    _sliverScrollController.addListener(() {
-      if (!isPinned &&
-          _sliverScrollController.hasClients &&
-          _sliverScrollController.offset > kToolbarHeight + 150) {
-        setState(() {
-          isPinned = true;
-        });
-      } else if (isPinned &&
-          _sliverScrollController.hasClients &&
-          _sliverScrollController.offset < kToolbarHeight + 150) {
-        setState(() {
-          isPinned = false;
-        });
-      }
-    });
   }
 
   void fetchUsers() {
-    isLoading = true;
-    Services.getUsers().then((users) {
+    setState(() {
+      isLoading = true;
+    });
+
+    Services.getUsers().then((usersFromService) {
       setState(() {
-        fetched = users;
-        this.users = fetched;
+        fetched = usersFromService;
+        users = fetched;
         isLoading = false;
       });
     });
   }
 
   void search(String value) {
-    users = fetched.where((e) => e.name.toLowerCase().contains(value)).toList();
-
-    setState(() {});
+    setState(() {
+      users = fetched.where((e) => e.name.toLowerCase().contains(value)).toList();
+    });
   }
 
   @override
@@ -78,8 +59,7 @@ class _HomeViewState extends State<HomeView> {
     final String bgImage = Provider.of<DarkThemeProvider>(context).bgImg;
 
     return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus
-          ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
         child: Scaffold(
@@ -103,7 +83,6 @@ class _HomeViewState extends State<HomeView> {
                   controller: _sliverScrollController,
                   child: Center(
                     child: SizedBox(
-                      // width: w,
                       width: isLandscape
                           ? ResponsiveSize.sizeWidth(context) * 0.9
                           : ResponsiveSize.sizeWidth(context),
@@ -131,20 +110,18 @@ class _HomeViewState extends State<HomeView> {
   SliverToBoxAdapter _buildLogoHeader(bool isDark) {
     final bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
+
     return SliverToBoxAdapter(
       child: Padding(
-        // width: isLandscape ? w * 0.5 : w,
         padding: EdgeInsets.only(top: isLandscape ? 0 : 50),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Container(
-                // constraints: BoxConstraints.expand(),
                 padding: const EdgeInsets.all(20),
                 child: Image.asset(
                   isDark ? Assets.bannerDark : Assets.banner,
-                  // height: 200,
                 ),
               ),
             ),
@@ -161,9 +138,10 @@ class _HomeViewState extends State<HomeView> {
     final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;
     final bool isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
+
     return SliverAppBar(
       elevation: 0,
-      backgroundColor: !isLandscape && isPinned
+      backgroundColor: !isLandscape && _sliverScrollController.offset > kToolbarHeight + 150
           ? isDark
               ? Colors.black
               : const Color.fromARGB(255, 219, 243, 220)
