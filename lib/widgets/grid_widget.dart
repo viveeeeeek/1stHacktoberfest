@@ -5,6 +5,7 @@ class GridWidget extends StatelessWidget {
   final int itemCount;
   final Widget Function(BuildContext, double, int) builder;
   final double spacing;
+
   const GridWidget({
     Key? key,
     required this.crossCount,
@@ -12,6 +13,7 @@ class GridWidget extends StatelessWidget {
     required this.builder,
     this.spacing = 13.0,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
