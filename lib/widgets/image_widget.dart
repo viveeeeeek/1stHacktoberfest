@@ -12,6 +12,7 @@ class ImageWidget extends StatelessWidget {
   const ImageWidget(this.imageUrl,
       {Key? key, this.height, this.width, this.radius = 16})
       : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final bool isDark = Provider.of<DarkThemeProvider>(context).dTheme;

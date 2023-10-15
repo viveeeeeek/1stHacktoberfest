@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../controller/dark_theme_provider.dart';
 import '../entities/user.entities.dart';
 import '../services/services.dart';
+import '../themes/color_provider.dart';
 import 'detailed.screens.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,12 +30,16 @@ class _HomePageState extends State<HomePage> {
 
   getUsers() {
     _loading = true;
-    Services.getUsers().then((users) {
-      setState(() {
-        _users = users;
-        _loading = false;
-      });
-    });
+    Services.getUsers().then(
+      (users) {
+        setState(
+          () {
+            _users = users;
+            _loading = false;
+          },
+        );
+      },
+    );
   }
 
   searchUser(String value) {
@@ -45,10 +50,12 @@ class _HomePageState extends State<HomePage> {
       Iterable<Users> getUser = _users!
           .where((e) => e.name.toLowerCase().contains(value.toLowerCase()));
 
-      setState(() {
-        _loading = false;
-        _users = getUser.toList();
-      });
+      setState(
+        () {
+          _loading = false;
+          _users = getUser.toList();
+        },
+      );
     } else {
       getUsers();
     }
@@ -86,13 +93,14 @@ class _HomePageState extends State<HomePage> {
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Colors.black12),
             child: IconButton(
-                icon: Icon(
-                  Icons.lightbulb,
-                  color: widget.darkMode ? Colors.white : Colors.yellow,
-                ),
-                onPressed: () {
-                  themeChange.dTheme = !themeChange.dTheme;
-                }),
+              icon: Icon(
+                Icons.lightbulb,
+                color: widget.darkMode ? Colors.white : Colors.yellow,
+              ),
+              onPressed: () {
+                themeChange.dTheme = !themeChange.dTheme;
+              },
+            ),
           ),
         ),
         body: NestedScrollView(
@@ -172,146 +180,145 @@ class _HomePageState extends State<HomePage> {
                   !_loading
                       ? Expanded(
                           child: GridView.builder(
-                              itemCount: _users == null ? 0 : _users!.length,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount:
-                                          MediaQuery.of(context).orientation ==
-                                                  Orientation.landscape
-                                              ? 3
-                                              : 2,
-                                      crossAxisSpacing: 8,
-                                      mainAxisSpacing: 8,
-                                      childAspectRatio:
-                                          (itemWidth / itemHeight)),
-                              itemBuilder: (BuildContext context, int index) {
-                                Users users = _users![index];
-                                return Padding(
-                                    padding: const EdgeInsets.all(10),
-                                    child: InkWell(
-                                      splashColor:
-                                          Colors.orangeAccent.withOpacity(0.5),
-                                      hoverColor: Colors.orangeAccent,
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DetailScreen(
-                                                        name: users.name,
-                                                        description: users
-                                                            .description)));
-                                      },
-                                      child: size.width < 784
-                                          ? Container(
-                                              height: size.height / 5,
-                                              width: size.width / 3.4,
-                                              decoration: BoxDecoration(
-                                                  color: colorProvidor(index)
-                                                      .withOpacity(0.5),
-                                                  border: Border.all(
-                                                      width: 3,
-                                                      color: const Color(
-                                                          0xFF00C598)),
-                                                  borderRadius:
-                                                      const BorderRadius.all(
-                                                          Radius.circular(
-                                                              30.0))),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  const SizedBox(
-                                                    height: 25,
-                                                  ),
-                                                  Center(
-                                                    child: Image.asset(
-                                                      "assets/user.png",
-                                                      alignment:
-                                                          Alignment.center,
-                                                      height: 25,
-                                                      width: 25,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 20,
-                                                  ),
-                                                  Expanded(
-                                                    child: Center(
-                                                      child: Container(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(8.0),
-                                                        child: Text(
-                                                          users.name,
-                                                          style: const TextStyle(
-                                                              fontSize: 18,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            )
-                                          : SizedBox(
-                                              height: 50,
-                                              width: 50,
-                                              child: Container(
-                                                  decoration: BoxDecoration(
-                                                      color:
-                                                          colorProvidor(index)
-                                                              .withOpacity(0.5),
-                                                      border: Border.all(
-                                                          width: 3,
-                                                          color: const Color(
-                                                              0xFF00C598)),
-                                                      borderRadius:
-                                                          const BorderRadius
-                                                                  .all(
-                                                              Radius.circular(
-                                                                  50.0))),
-                                                  child: Row(
-                                                    children: [
-                                                      SizedBox(
-                                                        width: size.width > 1000
-                                                            ? 35
-                                                            : size.width > 768
-                                                                ? 25
-                                                                : 20,
-                                                      ),
-                                                      Image.asset(
-                                                        "assets/user.png",
-                                                        height: 25,
-                                                        width: 25,
-                                                      ),
-                                                      SizedBox(
-                                                        width: size.width > 1000
-                                                            ? 35
-                                                            : 25,
-                                                      ),
-                                                      Text(
-                                                        users.name,
-                                                        style: const TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      ),
-                                                      SizedBox(
-                                                        width: size.width > 1000
-                                                            ? 35
-                                                            : 25,
-                                                      ),
-                                                    ],
-                                                  )),
+                            itemCount: _users == null ? 0 : _users!.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount:
+                                        MediaQuery.of(context).orientation ==
+                                                Orientation.landscape
+                                            ? 3
+                                            : 2,
+                                    crossAxisSpacing: 8,
+                                    mainAxisSpacing: 8,
+                                    childAspectRatio: (itemWidth / itemHeight)),
+                            itemBuilder: (BuildContext context, int index) {
+                              Users users = _users![index];
+                              return Padding(
+                                padding: const EdgeInsets.all(10),
+                                child: InkWell(
+                                  splashColor:
+                                      Colors.orangeAccent.withOpacity(0.5),
+                                  hoverColor: Colors.orangeAccent,
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DetailScreen(
+                                            name: users.name,
+                                            description: users.description),
+                                      ),
+                                    );
+                                  },
+                                  child: size.width < 784
+                                      ? Container(
+                                          height: size.height / 5,
+                                          width: size.width / 3.4,
+                                          decoration: BoxDecoration(
+                                            color: colorProvider(index)
+                                                .withOpacity(0.5),
+                                            border: Border.all(
+                                              width: 3,
+                                              color: const Color(0xFF00C598),
                                             ),
-                                    ));
-                              }),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(30.0),
+                                            ),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              const SizedBox(
+                                                height: 25,
+                                              ),
+                                              Center(
+                                                child: Image.asset(
+                                                  "assets/user.png",
+                                                  alignment: Alignment.center,
+                                                  height: 25,
+                                                  width: 25,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 20,
+                                              ),
+                                              Expanded(
+                                                child: Center(
+                                                  child: Container(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Text(
+                                                      users.name,
+                                                      style: const TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      : SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              color: colorProvider(index)
+                                                  .withOpacity(0.5),
+                                              border: Border.all(
+                                                width: 3,
+                                                color: const Color(0xFF00C598),
+                                              ),
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                Radius.circular(50.0),
+                                              ),
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : size.width > 768
+                                                          ? 25
+                                                          : 20,
+                                                ),
+                                                Image.asset(
+                                                  "assets/user.png",
+                                                  height: 25,
+                                                  width: 25,
+                                                ),
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : 25,
+                                                ),
+                                                Text(
+                                                  users.name,
+                                                  style: const TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                SizedBox(
+                                                  width: size.width > 1000
+                                                      ? 35
+                                                      : 25,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                ),
+                              );
+                            },
+                          ),
                         )
                       : const CircularProgressIndicator(),
                 ],
@@ -322,9 +329,11 @@ class _HomePageState extends State<HomePage> {
 
         //Floating action button for github
         floatingActionButton: FloatingActionButton(
-          onPressed: () => setState(() {
-            _launched = _launchInBrowser(toLaunch);
-          }),
+          onPressed: () => setState(
+            () {
+              _launched = _launchInBrowser(toLaunch);
+            },
+          ),
           child: const Padding(
             padding: EdgeInsets.all(3.0),
             child: FittedBox(child: Text('Github')),
@@ -339,17 +348,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-}
-
-Color colorProvidor(int index) {
-  if (index % 4 == 0) {
-    return const Color(0xFFB6EDDC);
-  } else if (index % 4 == 1) {
-    return const Color(0xFFA3C26D);
-  } else if (index % 4 == 2) {
-    return const Color(0xFFCA7C00);
-  } else {
-    return const Color(0xFFDE430E);
   }
 }

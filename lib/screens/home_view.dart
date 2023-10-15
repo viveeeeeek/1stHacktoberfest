@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hacktoberfest/utils/responsive_size.dart';
 import 'package:provider/provider.dart';
+
 import '../constants/assets.dart';
 import '../controller/dark_theme_provider.dart';
 import '../entities/user.entities.dart';
@@ -25,6 +26,7 @@ class _HomeViewState extends State<HomeView> {
   late TextEditingController controller;
   late final ScrollController _sliverScrollController = ScrollController();
   bool isPinned = false;
+
   @override
   void initState() {
     super.initState();
@@ -36,32 +38,42 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void silverListener() {
-    _sliverScrollController.addListener(() {
-      if (!isPinned &&
-          _sliverScrollController.hasClients &&
-          _sliverScrollController.offset > kToolbarHeight + 150) {
-        setState(() {
-          isPinned = true;
-        });
-      } else if (isPinned &&
-          _sliverScrollController.hasClients &&
-          _sliverScrollController.offset < kToolbarHeight + 150) {
-        setState(() {
-          isPinned = false;
-        });
-      }
-    });
+    _sliverScrollController.addListener(
+      () {
+        if (!isPinned &&
+            _sliverScrollController.hasClients &&
+            _sliverScrollController.offset > kToolbarHeight + 150) {
+          setState(
+            () {
+              isPinned = true;
+            },
+          );
+        } else if (isPinned &&
+            _sliverScrollController.hasClients &&
+            _sliverScrollController.offset < kToolbarHeight + 150) {
+          setState(
+            () {
+              isPinned = false;
+            },
+          );
+        }
+      },
+    );
   }
 
   void fetchUsers() {
     isLoading = true;
-    Services.getUsers().then((users) {
-      setState(() {
-        fetched = users;
-        this.users = fetched;
-        isLoading = false;
-      });
-    });
+    Services.getUsers().then(
+      (users) {
+        setState(
+          () {
+            fetched = users;
+            this.users = fetched;
+            isLoading = false;
+          },
+        );
+      },
+    );
   }
 
   void search(String value) {
@@ -78,8 +90,8 @@ class _HomeViewState extends State<HomeView> {
     final String bgImage = Provider.of<DarkThemeProvider>(context).bgImg;
 
     return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus
-          ?.unfocus(), // dismiss keyboard when user tap on the outside of textfield
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      // dismiss keyboard when user tap on the outside of textfield
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
         child: Scaffold(
